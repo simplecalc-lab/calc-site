@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<title>複利計算ツール</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<h1>複利計算ツール</h1>
+
+<p>元本（円）</p>
+<input id="principal" type="number" placeholder="例：1000000">
+
+<p>年利（%）</p>
+<input id="rate" type="number" placeholder="例：5">
+
+<p>年数</p>
+<input id="years" type="number" placeholder="例：20">
+
+<br><br>
+
+<button onclick="calc()">計算</button>
+
+<div class="result" id="result"></div>
+
+<script>
+
+function calc(){
+
+let principal = Number(document.getElementById("principal").value)
+let rate = Number(document.getElementById("rate").value) / 100
+let years = Number(document.getElementById("years").value)
+
+let total = principal * Math.pow(1 + rate, years)
+
+document.getElementById("result").innerHTML =
+"将来の金額 : " + total.toLocaleString() + " 円"
+
+}
+
+</script>
+
+</body>
+</html>
