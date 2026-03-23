@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIRE計算ツール｜早期リタイアに必要な資産</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>FIRE計算ツール</h1>
+    <p class="subtitle">リタイアに必要な資産を計算</p>
+
+    <div class="card">
+
+      <h2>シミュレーション</h2>
+
+      <label>年間支出（円）</label>
+      <input id="annual" type="number" placeholder="例：3000000">
+
+      <label>想定利回り（%）</label>
+      <input id="rate" type="number" placeholder="例：4">
+
+      <button onclick="calc()">計算する</button>
+
+      <div class="result" id="result"></div>
+
+    </div>
+
+    <!-- 解説 -->
+    <div class="card">
+      <h2>FIREとは？</h2>
+      <p>
+        FIRE（Financial Independence, Retire Early）は、
+        資産収入で生活できる状態を目指す考え方です。
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="card">
+      <h2>投資を始める</h2>
+      <p>シミュレーション結果をもとに資産形成を始めましょう</p>
+      <a href="#" class="cta">▶ 無料で証券口座を開設する</a>
+    </div>
+
+  </div>
+
+<script>
+function calc(){
+
+  let annual = Number(document.getElementById("annual").value)
+  let rate = Number(document.getElementById("rate").value) / 100
+
+  if(!annual || !rate){
+    alert("すべて入力してください")
+    return
+  }
+
+  // 4%ルールベース
+  let fireAmount = annual / rate
+
+  document.getElementById("result").innerHTML =
+    "必要資産 : <b>" + Math.floor(fireAmount).toLocaleString() + " 円</b>"
+}
+</script>
+
+</body>
+</html>
