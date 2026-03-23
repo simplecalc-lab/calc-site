@@ -3,7 +3,10 @@
 
 <head>
 <meta charset="UTF-8">
-<title>複利計算ツール</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>複利計算ツール｜資産シミュレーション（無料）</title>
+<meta name="description" content="元本・年利・年数から将来の資産を簡単に計算できる無料ツール。投資・資産運用のシミュレーションに最適です。">
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -11,35 +14,81 @@
 
 <body>
 
-<h1>複利計算ツール | Money Calc</h1>
+<div class="container">
 
-<p>元本（円）</p>
-<input id="principal" type="number" placeholder="例：1000000">
+  <h1>複利計算ツール</h1>
+  <p class="subtitle">資産シミュレーション（無料）</p>
 
-<p>年利（%）</p>
-<input id="rate" type="number" placeholder="例：5">
+  <!-- 計算エリア -->
+  <div class="card">
 
-<p>年数</p>
-<input id="years" type="number" placeholder="例：20">
+    <h2>シミュレーション</h2>
 
-<br><br>
+    <label>元本（円）</label>
+    <input id="principal" type="number" placeholder="例：1000000">
 
-<button onclick="calc()">計算</button>
+    <label>年利（%）</label>
+    <input id="rate" type="number" placeholder="例：5">
 
-<div class="result" id="result"></div>
+    <label>年数</label>
+    <input id="years" type="number" placeholder="例：20">
+
+    <button onclick="calc()">計算する</button>
+
+    <div class="result" id="result"></div>
+
+  </div>
+
+  <!-- 解説エリア（SEO強化） -->
+  <div class="card">
+
+    <h2>複利とは？</h2>
+    <p>
+      複利とは、元本に対して得られた利息を再投資することで、
+      時間とともに資産が加速度的に増えていく仕組みです。
+    </p>
+
+    <p>
+      例えば年利5%で20年間運用した場合、
+      単利と比較して大きな差が生まれます。
+    </p>
+
+  </div>
+
+  <!-- CTA（収益ポイント） -->
+  <div class="card">
+
+    <h2>資産運用を始める</h2>
+    <p>
+      シミュレーション結果をもとに、
+      実際の投資も検討してみましょう。
+    </p>
+
+    <a href="#" class="cta">
+      ▶ 無料で証券口座を開設する
+    </a>
+
+  </div>
+
+</div>
 
 <script>
 
 function calc(){
 
-let principal = Number(document.getElementById("principal").value)
-let rate = Number(document.getElementById("rate").value) / 100
-let years = Number(document.getElementById("years").value)
+  let principal = Number(document.getElementById("principal").value)
+  let rate = Number(document.getElementById("rate").value) / 100
+  let years = Number(document.getElementById("years").value)
 
-let total = principal * Math.pow(1 + rate, years)
+  if(!principal || !rate || !years){
+    alert("すべて入力してください")
+    return
+  }
 
-document.getElementById("result").innerHTML =
-"将来の金額 : " + total.toLocaleString() + " 円"
+  let total = principal * Math.pow(1 + rate, years)
+
+  document.getElementById("result").innerHTML =
+    "将来の金額 : <b>" + total.toLocaleString() + " 円</b>"
 
 }
 
