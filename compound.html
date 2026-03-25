@@ -5,11 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>複利計算ツール｜資産シミュレーション（無料）</title>
-<meta name="description" content="元本・年利・年数から将来の資産を簡単に計算できる無料ツール。投資・資産運用のシミュレーションに最適です。">
+<title>複利計算ツール｜無料で資産シミュレーション</title>
+<meta name="description" content="複利で資産がどれくらい増えるかを簡単に計算できる無料ツール。投資・資産運用のシミュレーションに最適です。">
 
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -37,12 +36,20 @@
 
     <div class="result" id="result"></div>
 
+    <!-- 🔥計算後CTA -->
+    <div id="cta-after-result" style="display:none; margin-top:20px;">
+      <a href="#" class="cta" target="_blank">
+        ▶ この結果をもとに資産運用を始める
+      </a>
+    </div>
+
   </div>
 
-  <!-- 解説エリア（SEO強化） -->
+  <!-- 解説 -->
   <div class="card">
 
     <h2>複利とは？</h2>
+
     <p>
       複利とは、元本に対して得られた利息を再投資することで、
       時間とともに資産が加速度的に増えていく仕組みです。
@@ -55,24 +62,25 @@
 
   </div>
 
+  <!-- 🔥メインCTA -->
   <div class="card">
 
-  <h2>資産運用を始める</h2>
+    <h2>資産運用を始める</h2>
 
-  <p>
-    シミュレーション結果をもとに、
-    実際の投資も検討してみましょう。
-  </p>
+    <p>
+      シミュレーション結果をもとに、
+      実際の投資も検討してみましょう。
+    </p>
 
-  <p style="font-size:12px; color:#888;">
-    ※口座開設は無料・スマホで5分で完了
-  </p>
+    <p style="font-size:12px; color:#888;">
+      ※口座開設は無料・スマホで5分で完了
+    </p>
 
-  <a href="#" class="cta" target="_blank">
-    ▶ 無料で証券口座を開設する
-  </a>
+    <a href="#" class="cta" target="_blank">
+      ▶ 無料で資産運用を始める（口座開設はこちら）
+    </a>
 
-</div>
+  </div>
 
 </div>
 
@@ -93,6 +101,9 @@ function calc(){
 
   document.getElementById("result").innerHTML =
     "将来の金額 : <b>" + total.toLocaleString() + " 円</b>"
+
+  // 🔥計算後CTA表示
+  document.getElementById("cta-after-result").style.display = "block";
 
 }
 
