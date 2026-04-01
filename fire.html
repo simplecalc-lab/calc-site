@@ -42,6 +42,10 @@
 
         <p>シミュレーション結果をもとに資産形成を始めましょう</p>
 
+        <p class="push-text">
+          この金額を目標に、今から資産形成を始めることが重要です。
+        </p>
+
         <p style="font-size: 12px; color: #888">
           ※口座開設は無料・スマホで5分で完了
         </p>
@@ -55,16 +59,25 @@
         let annual = Number(document.getElementById("annual").value);
         let rate = Number(document.getElementById("rate").value) / 100;
 
-        if (!annual || !rate) {
-          alert("すべて入力してください");
+        if (!annual || rate <= 0) {
+          alert("すべて入力してください（利回りは0より大きくしてください）");
           return;
         }
 
         // 4%ルールベース
         let fireAmount = annual / rate;
 
+        // 月生活費
+        let monthly = annual / 12;
+
         document.getElementById("result").innerHTML =
-          "必要資産 : <b>" +
+          "月の生活費: <b>" +
+          Math.floor(monthly).toLocaleString() +
+          " 円</b><br>" +
+          "年間支出: <b>" +
+          annual.toLocaleString() +
+          " 円</b><br><br>" +
+          "必要資産: <b>" +
           Math.floor(fireAmount).toLocaleString() +
           " 円</b>";
       }
