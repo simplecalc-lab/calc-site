@@ -25,6 +25,8 @@
         <button onclick="calc()">計算する</button>
 
         <div class="result" id="result"></div>
+
+        <canvas id="chart" style="margin-top: 20px"></canvas>
       </div>
 
       <!-- 解説 -->
@@ -89,7 +91,11 @@
       </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
+      let chart;
+
       function calc() {
         let annual = Number(document.getElementById("annual").value);
         let rate = Number(document.getElementById("rate").value) / 100;
@@ -99,10 +105,7 @@
           return;
         }
 
-        // 4%ルールベース
         let fireAmount = annual / rate;
-
-        // 月生活費
         let monthly = annual / 12;
 
         document.getElementById("result").innerHTML =
@@ -115,6 +118,33 @@
           "あなたがFIREするために必要な資産: <b>" +
           Math.floor(fireAmount).toLocaleString() +
           " 円</b>";
+
+        // ===== グラフ =====
+        let years = 30;
+        let data = [];
+        let total = 0;
+
+        for (let i = 0; i <= years; i++) {
+          total = total * (1 + rate) + annual;
+          data.push(Math.floor(total));
+        }
+
+        const ctx = document.getElementById("chart").getContext("2d");
+
+        if (chart) chart.destroy();
+
+        chart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: [...Array(years + 1).keys()],
+            datasets: [
+              {
+                label: "資産推移（円）",
+                data: data,
+              },
+            ],
+          },
+        });
       }
     </script>
   </body>
