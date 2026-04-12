@@ -124,7 +124,7 @@
         let data = [];
         let total = 0;
 
-        for (let i = 0; i <= years; i++) {
+        for (let i = 1; i <= years; i++) {
           total = total * (1 + rate) + annual;
           data.push(Math.floor(total));
         }
@@ -141,10 +141,28 @@
               {
                 label: "資産推移（円）",
                 data: data,
+                borderWidth: 2,
+                tension: 0.3,
+              },
+              {
+                label: "FIRE達成ライン",
+                data: Array(years + 1).fill(fireAmount),
+                borderDash: [5, 5],
+                borderWidth: 2,
               },
             ],
           },
         });
+
+        // 👇ここに追加！！！！
+        let reachYear = data.findIndex((v) => v >= fireAmount);
+
+        if (reachYear !== -1) {
+          document.getElementById("result").innerHTML +=
+            "<br><br><span style='color:#e53935;font-weight:bold;'>約 " +
+            reachYear +
+            " 年でFIRE達成できます</span>";
+        }
       }
     </script>
   </body>
