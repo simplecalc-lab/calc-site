@@ -9,6 +9,16 @@
   </head>
 
   <body>
+    <div id="header"></div>
+
+    <script>
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        });
+    </script>
+
     <div class="container">
       <h1>積立シミュレーター</h1>
       <p class="subtitle">毎月の投資で将来資産を計算</p>
@@ -49,9 +59,7 @@
 
         <p>シミュレーション結果をもとに資産形成を始めましょう</p>
 
-        <p class="note-small">
-          ※口座開設は無料・スマホで5分で完了
-        </p>
+        <p class="note-small">※口座開設は無料・スマホで5分で完了</p>
 
         <a href="#" class="cta" target="_blank"> ▶ 無料で証券口座を開設する </a>
       </div>

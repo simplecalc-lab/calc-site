@@ -1,0 +1,14 @@
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <a href="index.html">Money Calculator</a>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">ホーム</a>
+      <a href="compound.html">複利</a>
+      <a href="monthly.html">積立</a>
+      <a href="fire.html">FIRE</a>
+    </nav>
+  </div>
+</header>
