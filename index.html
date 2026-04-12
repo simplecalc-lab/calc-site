@@ -12,7 +12,7 @@
     <div id="header"></div>
 
     <script>
-      fetch("header.html")
+      fetch("/calc-site/header.html")
         .then((res) => res.text())
         .then((data) => {
           document.getElementById("header").innerHTML = data;
