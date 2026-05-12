@@ -14,15 +14,21 @@
   </head>
 
   <body>
-    <div id="header"></div>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <a href="index.html">Money Calculator</a>
+        </div>
 
-    <script>
-      fetch("/calc-site/header.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("header").innerHTML = data;
-        });
-    </script>
+        <nav class="nav">
+          <a href="index.html">ホーム</a>
+          <a href="compound.html">複利</a>
+          <a href="monthly.html">積立</a>
+          <a href="fire.html">FIRE</a>
+          <a href="compare.html">比較</a>
+        </nav>
+      </div>
+    </header>
 
     <div class="container">
       <h1>SBI証券と楽天証券はどっちがおすすめ？</h1>

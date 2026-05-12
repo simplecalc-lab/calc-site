@@ -224,3 +224,61 @@ button:hover {
 .nav a:hover {
   color: #fff;
 }
+
+/* =========================
+   Header
+========================= */
+
+.site-header {
+  background: #111;
+  padding: 16px 0;
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav a:hover {
+  opacity: 0.7;
+}
+
+/* スマホ */
+
+@media (max-width: 600px) {
+
+  .header-inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+}
