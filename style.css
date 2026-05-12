@@ -282,3 +282,24 @@ button:hover {
   }
 
 }
+
+/* =========================
+   Footer
+========================= */
+
+.footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.footer a {
+  color: #666;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer a:hover {
+  opacity: 0.7;
+}
