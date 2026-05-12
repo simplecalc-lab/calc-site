@@ -1,5 +1,6 @@
 <header class="site-header">
   <div class="header-inner">
+
     <div class="logo">
       <a href="index.html">Money Calculator</a>
     </div>
@@ -9,6 +10,8 @@
       <a href="compound.html">複利</a>
       <a href="monthly.html">積立</a>
       <a href="fire.html">FIRE</a>
+      <a href="compare.html">比較</a>
     </nav>
+
   </div>
 </header>
