@@ -43,6 +43,13 @@
         <div class="result" id="result"></div>
 
         <canvas id="chart" style="margin-top: 20px"></canvas>
+
+        <table class="compare-table" id="rate-table" style="display: none; margin-top: 20px">
+          <tr>
+            <th>想定利回り</th>
+            <th>必要資産の目安</th>
+          </tr>
+        </table>
       </div>
 
       <!-- 解説 -->
@@ -55,6 +62,48 @@
         <p>
           FIRE（Financial Independence, Retire Early）は、
           資産収入で生活できる状態を目指す考え方です。
+        </p>
+      </div>
+
+      <!-- 4%ルールの解説 -->
+      <div class="card">
+        <h2>4%ルールとは？</h2>
+        <p>
+          「年間支出の25倍の資産があれば、年4%ずつ取り崩しても資産が尽きにくい」という
+          考え方です。海外の研究（トリニティ・スタディ）を基にした目安であり、
+          将来の運用成績や市場環境を保証するものではありません。
+        </p>
+        <p>
+          想定利回りを高く設定するほど必要資産は少なく計算されますが、
+          その分、市場の変動によって資産が想定より早く減ってしまうリスクも高まります。
+          利回りは保守的に見積もっておくと安心です。
+        </p>
+      </div>
+
+      <!-- FIREの種類 -->
+      <div class="card">
+        <h2>FIREにもいろいろな種類がある</h2>
+        <ul>
+          <li>
+            <strong>Lean FIRE（リーン FIRE）</strong>：生活費を切り詰め、
+            少ない資産で早期リタイアを目指すスタイル
+          </li>
+          <li>
+            <strong>Fat FIRE（ファット FIRE）</strong>：ゆとりのある生活水準を維持しながら
+            リタイアするため、より多くの資産を目指すスタイル
+          </li>
+          <li>
+            <strong>Coast FIRE（コースト FIRE）</strong>：早期リタイアはせず、
+            将来必要な資産の土台だけ先に作り、その後は収入を生活費にあてるスタイル
+          </li>
+          <li>
+            <strong>Barista FIRE（バリスタ FIRE）</strong>：完全リタイアではなく、
+            軽めの仕事を続けながら資産収入と組み合わせて生活するスタイル
+          </li>
+        </ul>
+        <p>
+          必ずしも「完全に働かない」ことだけがFIREではありません。
+          自分に合った資産水準・働き方を考える参考にしてください。
         </p>
       </div>
 
@@ -179,6 +228,23 @@
             reachYear +
             " 年でFIRE達成できます</span>";
         }
+
+        // ===== 利回り別・必要資産の目安テーブル =====
+        let rateTable = document.getElementById("rate-table");
+        rateTable.innerHTML =
+          "<tr><th>想定利回り</th><th>必要資産の目安</th></tr>";
+
+        [0.03, 0.04, 0.05].forEach(function (r) {
+          let amount = Math.floor(annual / r);
+          rateTable.innerHTML +=
+            "<tr><td>" +
+            Math.round(r * 100) +
+            "%</td><td>" +
+            amount.toLocaleString() +
+            " 円</td></tr>";
+        });
+
+        rateTable.style.display = "table";
       }
     </script>
   </body>
