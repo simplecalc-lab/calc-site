@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>複利計算ツール｜無料で資産シミュレーション</title>
+    <title>複利計算ツール｜無料で資産シミュレーション（グラフ付き）</title>
     <meta
       name="description"
-      content="複利で資産がどれくらい増えるかを簡単に計算できる無料ツール。投資・資産運用のシミュレーションに最適です。"
+      content="複利で資産がどれくらい増えるかを簡単に計算できる無料ツール。単利との比較グラフ付きで、複利効果を視覚的に確認できます。"
     />
 
     <link rel="stylesheet" href="style.css" />
@@ -51,6 +51,8 @@
 
         <div class="result" id="result"></div>
 
+        <canvas id="chart" style="margin-top: 20px"></canvas>
+
         <!-- 🔥計算後CTA -->
         <div id="cta-after-result" style="display: none; margin-top: 20px">
           <a href="#" class="cta" target="_blank">
@@ -65,13 +67,35 @@
 
         <p>
           複利とは、元本に対して得られた利息を再投資することで、
-          時間とともに資産が加速度的に増えていく仕組みです。
+          時間とともに資産が加速度的に増えていく仕組みです。利息が利息を生むため、
+          運用期間が長くなるほど資産の増え方が加速していきます。
         </p>
 
         <p>
-          例えば年利5%で20年間運用した場合、
-          単利と比較して大きな差が生まれます。
+          一方「単利」は、常に当初の元本に対してのみ利息がつく仕組みです。
+          利率・年数が同じでも、複利と単利では将来の資産額に大きな差が生まれます。
+          上のグラフの2本の線で、その差を確認できます。
         </p>
+      </div>
+
+      <!-- 複利効果を高めるポイント -->
+      <div class="card">
+        <h2>複利効果を高める3つのポイント</h2>
+
+        <ul>
+          <li>
+            <strong>早く始める</strong>：運用期間が長いほど、利息が利息を生む回数が増え、
+            資産の伸びが大きくなります。
+          </li>
+          <li>
+            <strong>長く続ける</strong>：複利の効果は運用期間の後半になるほど大きくなるため、
+            途中でやめずに継続することが重要です。
+          </li>
+          <li>
+            <strong>利率を意識する</strong>：わずかな利率の差でも、長期間では将来資産に
+            大きな影響を与えます。上の計算フォームで年利を変えて試してみましょう。
+          </li>
+        </ul>
       </div>
 
       <!-- 🔥メインCTA -->
@@ -90,7 +114,11 @@
       </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
+      let chart;
+
       function calc() {
         let principal = Number(document.getElementById("principal").value);
         let rate = Number(document.getElementById("rate").value) / 100;
@@ -102,9 +130,56 @@
         }
 
         let total = principal * Math.pow(1 + rate, years);
+        let profit = total - principal;
+        let simpleTotal = principal * (1 + rate * years);
 
         document.getElementById("result").innerHTML =
-          "将来の金額 : <b>" + total.toLocaleString() + " 円</b>";
+          "元本: <b>" +
+          principal.toLocaleString() +
+          " 円</b><br>" +
+          "運用益（複利）: <b>" +
+          Math.floor(profit).toLocaleString() +
+          " 円</b><br><br>" +
+          "将来の資産（複利）: <b>" +
+          Math.floor(total).toLocaleString() +
+          " 円</b><br>" +
+          "参考：単利の場合は <b>" +
+          Math.floor(simpleTotal).toLocaleString() +
+          " 円</b>";
+
+        // ===== グラフ（複利 vs 単利） =====
+        let compoundData = [];
+        let simpleData = [];
+
+        for (let i = 0; i <= years; i++) {
+          compoundData.push(Math.floor(principal * Math.pow(1 + rate, i)));
+          simpleData.push(Math.floor(principal * (1 + rate * i)));
+        }
+
+        const ctx = document.getElementById("chart").getContext("2d");
+
+        if (chart) chart.destroy();
+
+        chart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: [...Array(years + 1).keys()],
+            datasets: [
+              {
+                label: "複利（円）",
+                data: compoundData,
+                borderWidth: 2,
+                tension: 0.3,
+              },
+              {
+                label: "単利（円）",
+                data: simpleData,
+                borderDash: [5, 5],
+                borderWidth: 2,
+              },
+            ],
+          },
+        });
 
         // 🔥計算後CTA表示
         document.getElementById("cta-after-result").style.display = "block";
