@@ -1,121 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>複利計算ツール｜無料で資産シミュレーション</title>
+    <meta
+      name="description"
+      content="複利で資産がどれくらい増えるかを簡単に計算できる無料ツール。投資・資産運用のシミュレーションに最適です。"
+    />
 
-<title>複利計算ツール｜無料で資産シミュレーション</title>
-<meta name="description" content="複利で資産がどれくらい増えるかを簡単に計算できる無料ツール。投資・資産運用のシミュレーションに最適です。">
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<link rel="stylesheet" href="style.css">
-</head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <a href="index.html">Money Calculator</a>
+        </div>
 
-<body>
+        <nav class="nav">
+          <a href="index.html">ホーム</a>
+          <a href="compound.html">複利</a>
+          <a href="monthly.html">積立</a>
+          <a href="fire.html">FIRE</a>
+          <a href="compare.html">比較</a>
+        </nav>
+      </div>
+    </header>
 
-<div class="container">
+    <div class="container">
+      <h1>複利計算ツール</h1>
+      <p class="subtitle">資産シミュレーション（無料）</p>
 
-  <h1>複利計算ツール</h1>
-  <p class="subtitle">資産シミュレーション（無料）</p>
+      <!-- 計算エリア -->
+      <div class="card">
+        <h2>シミュレーション</h2>
 
-  <!-- 計算エリア -->
-  <div class="card">
+        <label>元本（円）</label>
+        <input id="principal" type="number" placeholder="例：1000000" />
 
-    <h2>シミュレーション</h2>
+        <label>年利（%）</label>
+        <input id="rate" type="number" placeholder="例：5" />
 
-    <label>元本（円）</label>
-    <input id="principal" type="number" placeholder="例：1000000">
+        <label>年数</label>
+        <input id="years" type="number" placeholder="例：20" />
 
-    <label>年利（%）</label>
-    <input id="rate" type="number" placeholder="例：5">
+        <button onclick="calc()">計算する</button>
 
-    <label>年数</label>
-    <input id="years" type="number" placeholder="例：20">
+        <div class="result" id="result"></div>
 
-    <button onclick="calc()">計算する</button>
+        <!-- 🔥計算後CTA -->
+        <div id="cta-after-result" style="display: none; margin-top: 20px">
+          <a href="#" class="cta" target="_blank">
+            ▶ この結果をもとに資産運用を始める
+          </a>
+        </div>
+      </div>
 
-    <div class="result" id="result"></div>
+      <!-- 解説 -->
+      <div class="card">
+        <h2>複利とは？</h2>
 
-    <!-- 🔥計算後CTA -->
-    <div id="cta-after-result" style="display:none; margin-top:20px;">
-      <!-- TODO: A8.net提携後、実際のアフィリエイトURLに差し替える -->
-      <a href="compare.html" class="cta">
-        ▶ この結果をもとに証券会社を比較する
-      </a>
+        <p>
+          複利とは、元本に対して得られた利息を再投資することで、
+          時間とともに資産が加速度的に増えていく仕組みです。
+        </p>
+
+        <p>
+          例えば年利5%で20年間運用した場合、
+          単利と比較して大きな差が生まれます。
+        </p>
+      </div>
+
+      <!-- 🔥メインCTA -->
+      <div class="card">
+        <h2>資産運用を始める</h2>
+
+        <p>シミュレーション結果をもとに、 実際の投資も検討してみましょう。</p>
+
+        <p style="font-size: 12px; color: #888">
+          ※口座開設は無料・スマホで5分で完了
+        </p>
+
+        <a href="#" class="cta" target="_blank">
+          ▶ 無料で資産運用を始める（口座開設はこちら）
+        </a>
+      </div>
     </div>
 
-  </div>
+    <script>
+      function calc() {
+        let principal = Number(document.getElementById("principal").value);
+        let rate = Number(document.getElementById("rate").value) / 100;
+        let years = Number(document.getElementById("years").value);
 
-  <!-- 解説 -->
-  <div class="card">
+        if (!principal || !rate || !years) {
+          alert("すべて入力してください");
+          return;
+        }
 
-    <h2>複利とは？</h2>
+        let total = principal * Math.pow(1 + rate, years);
 
-    <p>
-      複利とは、元本に対して得られた利息を再投資することで、
-      時間とともに資産が加速度的に増えていく仕組みです。
-    </p>
+        document.getElementById("result").innerHTML =
+          "将来の金額 : <b>" + total.toLocaleString() + " 円</b>";
 
-    <p>
-      例えば年利5%で20年間運用した場合、
-      単利と比較して大きな差が生まれます。
-    </p>
-
-  </div>
-
-  <!-- 🔥メインCTA -->
-  <div class="card">
-
-    <h2>資産運用を始める</h2>
-
-    <p>
-      シミュレーション結果をもとに、
-      実際の投資も検討してみましょう。
-    </p>
-
-    <p style="font-size:12px; color:#888;">
-      ※口座開設は無料・スマホで5分で完了
-    </p>
-
-    <!-- TODO: A8.net提携後、実際のアフィリエイトURLに差し替える -->
-    <a href="compare.html" class="cta">
-      ▶ 証券会社を比較する
-    </a>
-
-  </div>
-
-</div>
-
-<footer class="site-footer">
-  <a href="index.html">トップ</a>
-  <a href="about.html">運営者情報・お問い合わせ</a>
-  <a href="privacy-policy.html">プライバシーポリシー</a>
-</footer>
-
-<script>
-
-function calc(){
-
-  let principal = Number(document.getElementById("principal").value)
-  let rate = Number(document.getElementById("rate").value) / 100
-  let years = Number(document.getElementById("years").value)
-
-  if(!principal || !rate || !years){
-    alert("すべて入力してください")
-    return
-  }
-
-  let total = principal * Math.pow(1 + rate, years)
-
-  document.getElementById("result").innerHTML =
-    "将来の金額 : <b>" + total.toLocaleString() + " 円</b>"
-
-  // 🔥計算後CTA表示
-  document.getElementById("cta-after-result").style.display = "block";
-
-}
-
-</script>
-
-</body>
+        // 🔥計算後CTA表示
+        document.getElementById("cta-after-result").style.display = "block";
+      }
+    </script>
+  </body>
 </html>
