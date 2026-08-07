@@ -133,6 +133,29 @@ button:hover {
 }
 
 /* =========================
+   Footer
+========================= */
+.site-footer {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+}
+
+.site-footer a {
+  color: #888;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.site-footer a:hover {
+  color: #111;
+  text-decoration: underline;
+}
+
+/* =========================
    Responsive（スマホ）
 ========================= */
 @media (max-width: 600px) {
