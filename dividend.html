@@ -74,6 +74,29 @@
         </button>
       </div>
 
+      <!-- 共有URL -->
+      <div class="card">
+        <h2>入力内容を保存する（共有用URL）</h2>
+        <p>
+          「共有用URLを作成」を押すと、入力内容を含んだURLが生成されます。このURLをブックマークまたは
+          メモしておけば、後から同じURLを開くだけで入力内容を復元できます。別の端末・別のブラウザでも
+          このURLさえあれば復元可能です。
+        </p>
+        <p class="note-small">
+          ※URLの中に銘柄名・株数などの入力内容がそのまま含まれます。第三者に共有・公開しないようご注意ください。
+        </p>
+
+        <button class="add-row" onclick="buildShareUrl()">共有用URLを作成</button>
+
+        <div id="share-url-box" style="display: none; margin-top: 14px">
+          <input type="text" id="share-url" readonly onclick="this.select()" />
+          <button class="clear-holdings" style="margin-top: 8px" onclick="copyShareUrl()">
+            URLをコピー
+          </button>
+          <p class="note-small" id="copy-status"></p>
+        </div>
+      </div>
+
       <!-- 解説 -->
       <div class="card">
         <h2>配当金とは？</h2>
@@ -319,7 +342,79 @@
         calc();
       }
 
-      restoreHoldings();
+      function buildShareUrl() {
+        const rows = readRows();
+
+        if (rows.length === 0) {
+          alert("保有株数と1株配当を1銘柄以上入力してください");
+          return;
+        }
+
+        const compact = rows.map(function (r) {
+          return [r.name, r.shares, r.dividend, r.account];
+        });
+
+        const encoded = encodeURIComponent(JSON.stringify(compact));
+        const url =
+          location.origin + location.pathname + "#data=" + encoded;
+
+        document.getElementById("share-url").value = url;
+        document.getElementById("share-url-box").style.display = "block";
+        document.getElementById("copy-status").textContent = "";
+      }
+
+      function copyShareUrl() {
+        const input = document.getElementById("share-url");
+        input.select();
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard
+            .writeText(input.value)
+            .then(function () {
+              document.getElementById("copy-status").textContent =
+                "✓ コピーしました";
+            })
+            .catch(function () {
+              document.getElementById("copy-status").textContent =
+                "コピーできませんでした。URLを選択して手動でコピーしてください";
+            });
+        } else {
+          document.getElementById("copy-status").textContent =
+            "URLを選択して手動でコピーしてください";
+        }
+      }
+
+      function restoreFromHash() {
+        if (location.hash.indexOf("#data=") !== 0) return false;
+
+        try {
+          const encoded = location.hash.slice(6);
+          const compact = JSON.parse(decodeURIComponent(encoded));
+
+          if (!Array.isArray(compact) || compact.length === 0) return false;
+
+          const holdings = document.getElementById("holdings");
+          holdings.innerHTML = "";
+
+          compact.forEach(function (entry) {
+            const row = addRow();
+            row.querySelector(".stock-name").value = entry[0] || "";
+            row.querySelector(".stock-shares").value = entry[1] || "";
+            row.querySelector(".stock-dividend").value = entry[2] || "";
+            row.querySelector(".stock-account").value =
+              entry[3] === "nisa" ? "nisa" : "taxable";
+          });
+
+          calc();
+          return true;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      if (!restoreFromHash()) {
+        restoreHoldings();
+      }
     </script>
   </body>
 </html>
