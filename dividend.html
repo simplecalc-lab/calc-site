@@ -51,6 +51,10 @@
               min="0"
               step="0.01"
             />
+            <select class="stock-account">
+              <option value="taxable">課税口座</option>
+              <option value="nisa">NISA枠</option>
+            </select>
             <button class="remove-row" onclick="removeRow(this)">×</button>
           </div>
         </div>
@@ -61,6 +65,13 @@
         <div class="result" id="result"></div>
 
         <table class="compare-table" id="breakdown-table" style="display: none"></table>
+
+        <p class="saved-note" id="saved-note" style="display: none">
+          ✓ 入力内容はこのブラウザに保存されています
+        </p>
+        <button class="clear-holdings" id="clear-holdings" style="display: none" onclick="clearHoldings()">
+          保存データをクリア
+        </button>
       </div>
 
       <!-- 解説 -->
@@ -112,8 +123,9 @@
           NISA口座で保有している場合は、この税金が非課税になります。
         </p>
         <p>
-          このツールで計算した金額は税引前の目安です。課税口座で保有している場合、
-          実際の受取額は計算結果からおよそ20%程度差し引かれる点にご留意ください。
+          このツールでは、銘柄ごとに「課税口座」か「NISA枠」かを選択できます。NISA枠を選んだ銘柄は
+          非課税として計算し、課税口座を選んだ銘柄のみ税引後の目安を計算します。
+          NISA制度について詳しくは<a href="articles/nisa.html">NISAとは？の解説記事</a>をご覧ください。
         </p>
       </div>
 
@@ -136,16 +148,28 @@
     </footer>
 
     <script>
+      const STORAGE_KEY = "dividendHoldings";
+
+      function rowTemplate() {
+        return (
+          '<input type="text" class="stock-name" placeholder="銘柄名（任意）例：〇〇HD" />' +
+          '<input type="number" class="stock-shares" placeholder="保有株数" min="0" />' +
+          '<input type="number" class="stock-dividend" placeholder="1株配当（円）" min="0" step="0.01" />' +
+          '<select class="stock-account">' +
+          '<option value="taxable">課税口座</option>' +
+          '<option value="nisa">NISA枠</option>' +
+          "</select>" +
+          '<button class="remove-row" onclick="removeRow(this)">×</button>'
+        );
+      }
+
       function addRow() {
         const holdings = document.getElementById("holdings");
         const row = document.createElement("div");
         row.className = "holding-row";
-        row.innerHTML =
-          '<input type="text" class="stock-name" placeholder="銘柄名（任意）例：〇〇HD" />' +
-          '<input type="number" class="stock-shares" placeholder="保有株数" min="0" />' +
-          '<input type="number" class="stock-dividend" placeholder="1株配当（円）" min="0" step="0.01" />' +
-          '<button class="remove-row" onclick="removeRow(this)">×</button>';
+        row.innerHTML = rowTemplate();
         holdings.appendChild(row);
+        return row;
       }
 
       function removeRow(button) {
@@ -155,54 +179,82 @@
         }
       }
 
-      function calc() {
+      function readRows() {
         const rows = document.querySelectorAll(".holding-row");
-        let total = 0;
-        let breakdown = [];
+        let entries = [];
 
         rows.forEach(function (row, index) {
           const name = row.querySelector(".stock-name").value.trim();
           const shares = Number(row.querySelector(".stock-shares").value);
           const dividend = Number(row.querySelector(".stock-dividend").value);
+          const account = row.querySelector(".stock-account").value;
 
           if (shares > 0 && dividend > 0) {
-            const rowTotal = shares * dividend;
-            total += rowTotal;
-            breakdown.push({
+            entries.push({
               name: name || "銘柄" + (index + 1),
               shares: shares,
               dividend: dividend,
-              rowTotal: rowTotal,
+              account: account,
+              rowTotal: shares * dividend,
             });
           }
         });
+
+        return entries;
+      }
+
+      function calc() {
+        const breakdown = readRows();
 
         if (breakdown.length === 0) {
           alert("保有株数と1株配当を1銘柄以上入力してください");
           return;
         }
 
-        const afterTax = total * (1 - 0.20315);
+        let nisaTotal = 0;
+        let taxableTotal = 0;
+
+        breakdown.forEach(function (b) {
+          if (b.account === "nisa") {
+            nisaTotal += b.rowTotal;
+          } else {
+            taxableTotal += b.rowTotal;
+          }
+        });
+
+        const total = nisaTotal + taxableTotal;
+        const taxableAfterTax = taxableTotal * (1 - 0.20315);
+        const grandAfterTax = nisaTotal + taxableAfterTax;
 
         document.getElementById("result").innerHTML =
           "年間配当金合計（税引前）: <b>" +
           Math.floor(total).toLocaleString() +
           " 円</b><br>" +
-          "月あたり換算: <b>" +
-          Math.floor(total / 12).toLocaleString() +
-          " 円</b><br><br>" +
-          "参考：課税口座の場合の税引後目安: <b>" +
-          Math.floor(afterTax).toLocaleString() +
+          "　うちNISA枠（非課税）: <b>" +
+          Math.floor(nisaTotal).toLocaleString() +
+          " 円</b><br>" +
+          "　うち課税口座（税引前）: <b>" +
+          Math.floor(taxableTotal).toLocaleString() +
+          " 円</b>（税引後目安: " +
+          Math.floor(taxableAfterTax).toLocaleString() +
+          " 円）<br><br>" +
+          "手取り目安合計: <b>" +
+          Math.floor(grandAfterTax).toLocaleString() +
+          " 円</b><br>" +
+          "月あたり換算（手取り目安）: <b>" +
+          Math.floor(grandAfterTax / 12).toLocaleString() +
           " 円</b>";
 
         const table = document.getElementById("breakdown-table");
         let html =
-          "<tr><th>銘柄</th><th>保有株数</th><th>1株配当</th><th>年間配当金</th></tr>";
+          "<tr><th>銘柄</th><th>口座区分</th><th>保有株数</th><th>1株配当</th><th>年間配当金</th></tr>";
 
         breakdown.forEach(function (b) {
           html +=
             "<tr><td>" +
             b.name +
+            "</td><td>" +
+            (b.account === "nisa" ? "NISA枠" : "課税口座") +
             "</td><td>" +
             b.shares.toLocaleString() +
             "株</td><td>" +
@@ -214,7 +266,60 @@
 
         table.innerHTML = html;
         table.style.display = "table";
+
+        saveHoldings(breakdown);
       }
+
+      function saveHoldings(breakdown) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(breakdown));
+        document.getElementById("saved-note").style.display = "block";
+        document.getElementById("clear-holdings").style.display = "inline-block";
+      }
+
+      function clearHoldings() {
+        localStorage.removeItem(STORAGE_KEY);
+        document.getElementById("saved-note").style.display = "none";
+        document.getElementById("clear-holdings").style.display = "none";
+        document.getElementById("result").innerHTML = "";
+        document.getElementById("breakdown-table").style.display = "none";
+
+        const holdings = document.getElementById("holdings");
+        holdings.innerHTML = "";
+        addRow();
+      }
+
+      function restoreHoldings() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved) return;
+
+        let entries;
+        try {
+          entries = JSON.parse(saved);
+        } catch (e) {
+          return;
+        }
+
+        if (!Array.isArray(entries) || entries.length === 0) return;
+
+        const holdings = document.getElementById("holdings");
+        holdings.innerHTML = "";
+
+        entries.forEach(function (entry) {
+          const row = addRow();
+          row.querySelector(".stock-name").value = entry.name || "";
+          row.querySelector(".stock-shares").value = entry.shares || "";
+          row.querySelector(".stock-dividend").value = entry.dividend || "";
+          row.querySelector(".stock-account").value =
+            entry.account === "nisa" ? "nisa" : "taxable";
+        });
+
+        document.getElementById("saved-note").style.display = "block";
+        document.getElementById("clear-holdings").style.display = "inline-block";
+
+        calc();
+      }
+
+      restoreHoldings();
     </script>
   </body>
 </html>

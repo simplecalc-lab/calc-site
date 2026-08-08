@@ -88,6 +88,21 @@ input:focus {
   border-color: #111;
 }
 
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  background: #fff;
+}
+
+select:focus {
+  outline: none;
+  border-color: #111;
+}
+
 /* =========================
    Button
 ========================= */
@@ -314,7 +329,8 @@ button:hover {
   margin-top: 10px;
 }
 
-.holding-row input {
+.holding-row input,
+.holding-row select {
   width: auto;
   flex: 1;
   min-width: 0;
@@ -322,6 +338,10 @@ button:hover {
 
 .holding-row input.stock-name {
   flex: 1.4;
+}
+
+.holding-row select.stock-account {
+  flex: 0.9;
 }
 
 .remove-row {
@@ -352,11 +372,32 @@ button:hover {
     flex-wrap: wrap;
   }
 
-  .holding-row input {
+  .holding-row input,
+  .holding-row select {
     flex: 1 1 100%;
   }
 
   .remove-row {
     flex: 1 1 100%;
   }
+}
+
+.saved-note {
+  font-size: 12px;
+  color: #888;
+  margin-top: 10px;
+}
+
+.clear-holdings {
+  background: #fff;
+  color: #999;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  padding: 6px 12px;
+  width: auto;
+  margin-top: 10px;
+}
+
+.clear-holdings:hover {
+  opacity: 0.8;
 }
