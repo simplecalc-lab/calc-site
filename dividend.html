@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>配当金シミュレーター｜保有株式から年間配当金を予測【無料】</title>
+    <meta
+      name="description"
+      content="保有している銘柄・株数・1株あたり配当金を入力するだけで、年間の配当金合計を予測できる無料ツール。S株（単元未満株）にも対応しています。"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <a href="index.html">Money Calculator</a>
+        </div>
+
+        <nav class="nav">
+          <a href="index.html">ホーム</a>
+          <a href="compound.html">複利</a>
+          <a href="monthly.html">積立</a>
+          <a href="fire.html">FIRE</a>
+          <a href="dividend.html">配当</a>
+          <a href="compare.html">比較</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <h1>配当金シミュレーター</h1>
+      <p class="subtitle">保有株式から年間配当金を予測（無料）</p>
+
+      <div class="card">
+        <h2>保有銘柄を入力</h2>
+        <p class="note-small">
+          銘柄名は任意です。1株あたり配当金は、各証券会社の銘柄ページなどに記載の「1株配当」を入力してください。
+        </p>
+
+        <div id="holdings">
+          <div class="holding-row">
+            <input type="text" class="stock-name" placeholder="銘柄名（任意）例：〇〇HD" />
+            <input type="number" class="stock-shares" placeholder="保有株数" min="0" />
+            <input
+              type="number"
+              class="stock-dividend"
+              placeholder="1株配当（円）"
+              min="0"
+              step="0.01"
+            />
+            <button class="remove-row" onclick="removeRow(this)">×</button>
+          </div>
+        </div>
+
+        <button class="add-row" onclick="addRow()">＋ 銘柄を追加</button>
+        <button onclick="calc()">計算する</button>
+
+        <div class="result" id="result"></div>
+
+        <table class="compare-table" id="breakdown-table" style="display: none"></table>
+      </div>
+
+      <!-- 解説 -->
+      <div class="card">
+        <h2>配当金とは？</h2>
+        <p>
+          配当金とは、企業が得た利益の一部を株主に還元するお金のことです。
+          保有している株数に応じて支払われ、株価の値上がり益とは別の収益源になります。
+        </p>
+        <p>
+          「1株配当」は銘柄ごとに決算のたびに発表され、業績によって増減（増配・減配）したり、
+          支払われない（無配）年もあります。将来にわたって同じ金額が保証されているわけではない点に
+          注意してください。
+        </p>
+      </div>
+
+      <!-- S株（単元未満株）について -->
+      <div class="card">
+        <h2>S株（単元未満株）でも配当はもらえる</h2>
+        <p>
+          通常、日本株は100株単位（1単元）での売買が基本ですが、SBI証券の「S株」のように
+          1株から購入できるサービスを使えば、少額からさまざまな銘柄に分散投資できます。
+        </p>
+        <p>
+          配当金は保有株数に応じて按分されるため、1株だけの保有でも、単元株主と同じ
+          「1株あたり配当金」の割合で受け取ることができます。複数のS株銘柄を保有している場合は、
+          このツールに銘柄ごとの保有株数を入力することで、合計の配当金を一括で試算できます。
+        </p>
+      </div>
+
+      <!-- 配当利回りとの違い -->
+      <div class="card">
+        <h2>配当金額と配当利回りの違い</h2>
+        <p>
+          「配当金額」は1株あたり何円もらえるかという金額そのものです。一方「配当利回り」は
+          配当金額を株価で割った割合（%）で、投資額に対してどれだけの配当を得られるかを示す指標です。
+        </p>
+        <p>
+          同じ配当金額でも、株価が異なれば配当利回りは変わります。銘柄を比較する際は、
+          金額だけでなく利回りもあわせて確認するとよいでしょう。
+        </p>
+      </div>
+
+      <!-- 税金について -->
+      <div class="card">
+        <h2>配当金にかかる税金</h2>
+        <p>
+          配当金には、通常の課税口座の場合、所得税・住民税をあわせて約20.315%の税金がかかります。
+          NISA口座で保有している場合は、この税金が非課税になります。
+        </p>
+        <p>
+          このツールで計算した金額は税引前の目安です。課税口座で保有している場合、
+          実際の受取額は計算結果からおよそ20%程度差し引かれる点にご留意ください。
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="card">
+        <h2>これから配当株投資を始めるなら</h2>
+        <p>
+          配当株投資は、少額から始めて銘柄数を少しずつ増やしていくスタイルとも相性が良い方法です。
+          証券会社選びに迷ったら比較ページを、業種・セクターの選び方に迷ったら解説記事も参考にしてください。
+        </p>
+        <p class="note-small">※口座開設は無料・スマホで5分で完了</p>
+        <a href="#" class="cta" target="_blank"> ▶ 証券会社を比較して口座を開設する </a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <a href="about.html">運営者情報</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="contact.html">お問い合わせ</a>
+    </footer>
+
+    <script>
+      function addRow() {
+        const holdings = document.getElementById("holdings");
+        const row = document.createElement("div");
+        row.className = "holding-row";
+        row.innerHTML =
+          '<input type="text" class="stock-name" placeholder="銘柄名（任意）例：〇〇HD" />' +
+          '<input type="number" class="stock-shares" placeholder="保有株数" min="0" />' +
+          '<input type="number" class="stock-dividend" placeholder="1株配当（円）" min="0" step="0.01" />' +
+          '<button class="remove-row" onclick="removeRow(this)">×</button>';
+        holdings.appendChild(row);
+      }
+
+      function removeRow(button) {
+        const holdings = document.getElementById("holdings");
+        if (holdings.children.length > 1) {
+          button.closest(".holding-row").remove();
+        }
+      }
+
+      function calc() {
+        const rows = document.querySelectorAll(".holding-row");
+        let total = 0;
+        let breakdown = [];
+
+        rows.forEach(function (row, index) {
+          const name = row.querySelector(".stock-name").value.trim();
+          const shares = Number(row.querySelector(".stock-shares").value);
+          const dividend = Number(row.querySelector(".stock-dividend").value);
+
+          if (shares > 0 && dividend > 0) {
+            const rowTotal = shares * dividend;
+            total += rowTotal;
+            breakdown.push({
+              name: name || "銘柄" + (index + 1),
+              shares: shares,
+              dividend: dividend,
+              rowTotal: rowTotal,
+            });
+          }
+        });
+
+        if (breakdown.length === 0) {
+          alert("保有株数と1株配当を1銘柄以上入力してください");
+          return;
+        }
+
+        const afterTax = total * (1 - 0.20315);
+
+        document.getElementById("result").innerHTML =
+          "年間配当金合計（税引前）: <b>" +
+          Math.floor(total).toLocaleString() +
+          " 円</b><br>" +
+          "月あたり換算: <b>" +
+          Math.floor(total / 12).toLocaleString() +
+          " 円</b><br><br>" +
+          "参考：課税口座の場合の税引後目安: <b>" +
+          Math.floor(afterTax).toLocaleString() +
+          " 円</b>";
+
+        const table = document.getElementById("breakdown-table");
+        let html =
+          "<tr><th>銘柄</th><th>保有株数</th><th>1株配当</th><th>年間配当金</th></tr>";
+
+        breakdown.forEach(function (b) {
+          html +=
+            "<tr><td>" +
+            b.name +
+            "</td><td>" +
+            b.shares.toLocaleString() +
+            "株</td><td>" +
+            b.dividend.toLocaleString() +
+            "円</td><td>" +
+            Math.floor(b.rowTotal).toLocaleString() +
+            "円</td></tr>";
+        });
+
+        table.innerHTML = html;
+        table.style.display = "table";
+      }
+    </script>
+  </body>
+</html>

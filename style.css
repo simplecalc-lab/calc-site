@@ -303,3 +303,60 @@ button:hover {
 .footer a:hover {
   opacity: 0.7;
 }
+
+/* =========================
+   Holdings form (dividend.html)
+========================= */
+
+.holding-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.holding-row input {
+  width: auto;
+  flex: 1;
+  min-width: 0;
+}
+
+.holding-row input.stock-name {
+  flex: 1.4;
+}
+
+.remove-row {
+  flex: 0 0 auto;
+  width: auto;
+  margin-top: 0;
+  padding: 0 14px;
+  background: #eee;
+  color: #333;
+}
+
+.remove-row:hover {
+  opacity: 0.8;
+}
+
+.add-row {
+  background: #fff;
+  color: #111;
+  border: 1px solid #ddd;
+}
+
+.add-row:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .holding-row {
+    flex-wrap: wrap;
+  }
+
+  .holding-row input {
+    flex: 1 1 100%;
+  }
+
+  .remove-row {
+    flex: 1 1 100%;
+  }
+}
