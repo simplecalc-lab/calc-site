@@ -51,6 +51,12 @@
               min="0"
               step="0.01"
             />
+            <input
+              type="number"
+              class="stock-cost"
+              placeholder="取得金額（円・任意）"
+              min="0"
+            />
             <select class="stock-account">
               <option value="taxable">課税口座</option>
               <option value="nisa">NISA枠</option>
@@ -58,6 +64,9 @@
             <button class="remove-row" onclick="removeRow(this)">×</button>
           </div>
         </div>
+        <p class="note-small">
+          取得金額（購入時の合計金額）を入力すると、取得金額に対する配当利回りを計算できます。
+        </p>
 
         <button class="add-row" onclick="addRow()">＋ 銘柄を追加</button>
         <button onclick="calc()">計算する</button>
@@ -72,6 +81,44 @@
         <button class="clear-holdings" id="clear-holdings" style="display: none" onclick="clearHoldings()">
           保存データをクリア
         </button>
+      </div>
+
+      <!-- 配当再投資シミュレーション -->
+      <div class="card">
+        <h2>配当を再投資したら？複利シミュレーション</h2>
+        <p>
+          配当金を受け取るたびに再投資すると、複利の効果で資産・配当金が加速度的に増えていきます。
+          FIRE（配当収入で生活する）を目指す場合の目安として、現在の利回りで再投資を続けた場合の
+          将来の年間配当金を試算できます。
+        </p>
+
+        <button class="add-row" onclick="fillProjectionFromHoldings()">
+          現在の入力から自動反映
+        </button>
+
+        <label>元本（取得金額の合計・円）</label>
+        <input id="proj-principal" type="number" placeholder="例：1000000" />
+
+        <label>想定利回り（%）</label>
+        <input id="proj-rate" type="number" placeholder="例：4" step="0.01" />
+
+        <label>年数</label>
+        <input id="proj-years" type="number" placeholder="例：20" />
+
+        <label>目標の年間配当金（円・任意、FIREの目安に）</label>
+        <input id="proj-target" type="number" placeholder="例：1200000" />
+
+        <button onclick="calcProjection()">複利シミュレーションを計算</button>
+
+        <div class="result" id="proj-result"></div>
+
+        <canvas id="proj-chart" style="margin-top: 20px"></canvas>
+
+        <p class="note-small">
+          ※この試算は、株価が変動せず、配当利回りが一定のまま毎年配当をすべて再投資し続けたと仮定した
+          単純化されたモデルです。実際には株価の変動や減配・増配、税金の影響を受けるため、
+          あくまで目安としてご利用ください。
+        </p>
       </div>
 
       <!-- 共有URL -->
@@ -170,14 +217,18 @@
       <a href="contact.html">お問い合わせ</a>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
       const STORAGE_KEY = "dividendHoldings";
+      let projChart;
 
       function rowTemplate() {
         return (
           '<input type="text" class="stock-name" placeholder="銘柄名（任意）例：〇〇HD" />' +
           '<input type="number" class="stock-shares" placeholder="保有株数" min="0" />' +
           '<input type="number" class="stock-dividend" placeholder="1株配当（円）" min="0" step="0.01" />' +
+          '<input type="number" class="stock-cost" placeholder="取得金額（円・任意）" min="0" />' +
           '<select class="stock-account">' +
           '<option value="taxable">課税口座</option>' +
           '<option value="nisa">NISA枠</option>' +
@@ -210,6 +261,7 @@
           const name = row.querySelector(".stock-name").value.trim();
           const shares = Number(row.querySelector(".stock-shares").value);
           const dividend = Number(row.querySelector(".stock-dividend").value);
+          const cost = Number(row.querySelector(".stock-cost").value) || 0;
           const account = row.querySelector(".stock-account").value;
 
           if (shares > 0 && dividend > 0) {
@@ -217,6 +269,7 @@
               name: name || "銘柄" + (index + 1),
               shares: shares,
               dividend: dividend,
+              cost: cost,
               account: account,
               rowTotal: shares * dividend,
             });
@@ -249,7 +302,18 @@
         const taxableAfterTax = taxableTotal * (1 - 0.20315);
         const grandAfterTax = nisaTotal + taxableAfterTax;
 
-        document.getElementById("result").innerHTML =
+        let totalCost = 0;
+        let dividendOnPricedRows = 0;
+        breakdown.forEach(function (b) {
+          if (b.cost > 0) {
+            totalCost += b.cost;
+            dividendOnPricedRows += b.rowTotal;
+          }
+        });
+        const overallYield =
+          totalCost > 0 ? (dividendOnPricedRows / totalCost) * 100 : null;
+
+        let resultHtml =
           "年間配当金合計（税引前）: <b>" +
           Math.floor(total).toLocaleString() +
           " 円</b><br>" +
@@ -268,11 +332,23 @@
           Math.floor(grandAfterTax / 12).toLocaleString() +
           " 円</b>";
 
+        if (overallYield !== null) {
+          resultHtml +=
+            "<br><br>取得金額ベースの配当利回り: <b>" +
+            overallYield.toFixed(2) +
+            "%</b>（取得金額合計 " +
+            Math.floor(totalCost).toLocaleString() +
+            " 円に対して）";
+        }
+
+        document.getElementById("result").innerHTML = resultHtml;
+
         const table = document.getElementById("breakdown-table");
         let html =
-          "<tr><th>銘柄</th><th>口座区分</th><th>保有株数</th><th>1株配当</th><th>年間配当金</th></tr>";
+          "<tr><th>銘柄</th><th>口座区分</th><th>保有株数</th><th>1株配当</th><th>年間配当金</th><th>利回り</th></tr>";
 
         breakdown.forEach(function (b) {
+          const rowYield = b.cost > 0 ? ((b.rowTotal / b.cost) * 100).toFixed(2) + "%" : "-";
           html +=
             "<tr><td>" +
             b.name +
@@ -284,13 +360,19 @@
             b.dividend.toLocaleString() +
             "円</td><td>" +
             Math.floor(b.rowTotal).toLocaleString() +
-            "円</td></tr>";
+            "円</td><td>" +
+            rowYield +
+            "</td></tr>";
         });
 
         table.innerHTML = html;
         table.style.display = "table";
 
         saveHoldings(breakdown);
+
+        window.lastTotalDividend = total;
+        window.lastTotalCost = totalCost;
+        window.lastOverallYield = overallYield;
       }
 
       function saveHoldings(breakdown) {
@@ -332,6 +414,7 @@
           row.querySelector(".stock-name").value = entry.name || "";
           row.querySelector(".stock-shares").value = entry.shares || "";
           row.querySelector(".stock-dividend").value = entry.dividend || "";
+          row.querySelector(".stock-cost").value = entry.cost || "";
           row.querySelector(".stock-account").value =
             entry.account === "nisa" ? "nisa" : "taxable";
         });
@@ -351,7 +434,7 @@
         }
 
         const compact = rows.map(function (r) {
-          return [r.name, r.shares, r.dividend, r.account];
+          return [r.name, r.shares, r.dividend, r.account, r.cost];
         });
 
         const encoded = encodeURIComponent(JSON.stringify(compact));
@@ -403,6 +486,7 @@
             row.querySelector(".stock-dividend").value = entry[2] || "";
             row.querySelector(".stock-account").value =
               entry[3] === "nisa" ? "nisa" : "taxable";
+            row.querySelector(".stock-cost").value = entry[4] || "";
           });
 
           calc();
@@ -410,6 +494,104 @@
         } catch (e) {
           return false;
         }
+      }
+
+      function fillProjectionFromHoldings() {
+        calc();
+
+        if (window.lastTotalCost && window.lastTotalCost > 0) {
+          document.getElementById("proj-principal").value = Math.floor(
+            window.lastTotalCost
+          );
+        }
+        if (window.lastOverallYield !== null && window.lastOverallYield !== undefined) {
+          document.getElementById("proj-rate").value =
+            window.lastOverallYield.toFixed(2);
+        }
+
+        if (!document.getElementById("proj-principal").value) {
+          alert(
+            "取得金額が入力された銘柄がありません。各銘柄に取得金額を入力してから再度お試しください。"
+          );
+        }
+      }
+
+      function calcProjection() {
+        const principal = Number(document.getElementById("proj-principal").value);
+        const rate = Number(document.getElementById("proj-rate").value) / 100;
+        const years = Number(document.getElementById("proj-years").value);
+        const target = Number(document.getElementById("proj-target").value) || 0;
+
+        if (!principal || !rate || !years) {
+          alert("元本・想定利回り・年数をすべて入力してください");
+          return;
+        }
+
+        let assetData = [];
+        let dividendData = [];
+
+        for (let i = 0; i <= years; i++) {
+          const value = principal * Math.pow(1 + rate, i);
+          assetData.push(Math.floor(value));
+          dividendData.push(Math.floor(value * rate));
+        }
+
+        let html =
+          years + "年後の評価額（再投資込み）: <b>" +
+          assetData[years].toLocaleString() +
+          " 円</b><br>" +
+          years + "年後の年間配当金（税引前）: <b>" +
+          dividendData[years].toLocaleString() +
+          " 円</b>";
+
+        if (target > 0) {
+          const reachYear = dividendData.findIndex(function (v) {
+            return v >= target;
+          });
+
+          if (reachYear !== -1) {
+            html +=
+              "<br><br><span style='color:#e53935;font-weight:bold;'>約 " +
+              reachYear +
+              " 年で目標の年間配当金（" +
+              target.toLocaleString() +
+              " 円）に到達する見込みです</span>";
+          } else {
+            html +=
+              "<br><br>入力した年数の範囲内では目標の年間配当金には届きません。年数を長くするか、利回り・元本を見直してみてください。";
+          }
+        }
+
+        document.getElementById("proj-result").innerHTML = html;
+
+        const ctx = document.getElementById("proj-chart").getContext("2d");
+        if (projChart) projChart.destroy();
+
+        const datasets = [
+          {
+            label: "年間配当金の推移（円）",
+            data: dividendData,
+            borderWidth: 2,
+            tension: 0.3,
+          },
+        ];
+
+        if (target > 0) {
+          datasets.push({
+            label: "目標ライン",
+            data: Array(years + 1).fill(target),
+            borderDash: [5, 5],
+            borderWidth: 2,
+          });
+        }
+
+        projChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: [...Array(years + 1).keys()],
+            datasets: datasets,
+          },
+        });
       }
 
       if (!restoreFromHash()) {
