@@ -71,6 +71,9 @@
 | `articles/nisa.html` | 解説記事「NISAとは？」。新NISAの2つの投資枠・メリット・始め方を解説 |
 | `articles/junior-nisa.html` | 解説記事「子供NISAとは？」。旧ジュニアNISAの現状と、2027年開始予定の「こどもNISA」を解説 |
 | `articles/sector-guide.html` | 解説記事「長期投資で注目したい業種・セクターの選び方」。業種ごとの特徴とリスクを解説 |
+| `articles/sbi-account-opening.html` | 解説記事「SBI証券の口座開設方法」。必要書類〜開設後の初期設定までの手順 |
+| `articles/rakuten-account-opening.html` | 解説記事「楽天証券の口座開設方法」。楽天会員連携を含む申し込み手順 |
+| `articles/s-kabu-tips.html` | 解説記事「S株の心得」。コツコツ買う考え方、自分ルールの決め方、4%ルールの応用 |
 | `guide/getting-started.html` | 始め方ガイド「投資デビューまでの5ステップ」。証券会社選び〜積立開始までの流れ |
 
 すべてのページで `style.css` を共通利用。
