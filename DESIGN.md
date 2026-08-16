@@ -73,6 +73,7 @@
 | `articles/sector-guide.html` | 解説記事「長期投資で注目したい業種・セクターの選び方」。業種ごとの特徴とリスクを解説 |
 | `articles/sector-diversification.html` | 解説記事「東証33業種で考える分散投資のすすめ」。東証33業種一覧・時価総額トップ3企業（客観データ）と分散の考え方 |
 | `articles/glossary.html` | 「株式用語辞典」。ROE・PER・PBR等の指標、注文方法、権利関連、投資の考え方に関する用語を解説 |
+| `articles/yen-exchange-rate.html` | 解説記事「円安とは？円高とは？」。為替の仕組みと、輸出/輸入関連など業種への影響、為替ヘッジの考え方 |
 | `articles/sbi-account-opening.html` | 解説記事「SBI証券の口座開設方法」。必要書類〜開設後の初期設定までの手順 |
 | `articles/rakuten-account-opening.html` | 解説記事「楽天証券の口座開設方法」。楽天会員連携を含む申し込み手順 |
 | `articles/s-kabu-tips.html` | 解説記事「S株の心得」。コツコツ買う考え方、自分ルールの決め方、4%ルールの応用 |
