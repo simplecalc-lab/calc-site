@@ -103,6 +103,7 @@
 | `articles/ideco-nencho.html` | 解説記事「iDeCoの年末調整の書き方」。小規模企業共済等掛金控除欄の記入方法、必要書類、よくある間違いを解説（マーケティング部の季節性トピック調査より） |
 | `articles/furusato-ideco-nisa.html` | 解説記事「ふるさと納税とiDeCo・NISAは併用できる？」。iDeCoが限度額を下げる仕組みと具体例、NISAは非課税のため無関係である旨を解説 |
 | `articles/stock-loss-tax.html` | 解説記事「株の損失は確定申告したほうがお得？」。損益通算・繰越控除（毎年連続申告が必要な点）、NISA損失は対象外、扶養/国保への影響を解説 |
+| `articles/tax-reform-2026.html` | 解説記事「令和8年度税制改正まとめ」。NISAつみたて投資枠の対象商品拡大、こどもNISA新設、iDeCo拠出限度額/加入年齢引き上げをまとめたハブ記事 |
 
 **競合分析に基づく5記事シリーズ（完了）:** broker-comparison.html / nisa-vs-ideco.html / yutai-calendar.html / high-dividend-stocks.html / ipo.html の5本は、同ジャンルで成功している5サイトの分析（比較ランキング記事の重要性、優待コンテンツの強さ、用語集からの内部リンク導線等）をもとに企画・作成した。
 | `articles/sbi-account-opening.html` | 解説記事「SBI証券の口座開設方法」。必要書類〜開設後の初期設定までの手順 |
