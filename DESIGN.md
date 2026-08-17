@@ -85,6 +85,9 @@
 | `articles/nisa-vs-ideco.html` | 解説記事「NISAとiDeCoの違いを比較」。引き出し制限・税制優遇・拠出限度額を比較。2026年12月のiDeCo制度改正（拠出限度額・加入年齢引き上げ）を反映 |
 | `articles/yutai-calendar.html` | 解説記事「株主優待カレンダー」。yutai-20.htmlの銘柄を権利確定月（2月/3月/4月/6月/8月/9月/12月）別に再構成。優待ポートフォリオの組み方も解説 |
 | `articles/high-dividend-stocks.html` | 解説記事「高配当株の選び方」。配当利回りの罠、配当性向・増配実績・業績の裏付けチェック、業種偏りへの注意を解説 |
+| `articles/ipo.html` | 解説記事「IPO（新規公開株）とは？」。申し込みの流れ、当選確率を上げるコツ、初値割れ等のリスクを解説 |
+
+**競合分析に基づく5記事シリーズ（完了）:** broker-comparison.html / nisa-vs-ideco.html / yutai-calendar.html / high-dividend-stocks.html / ipo.html の5本は、同ジャンルで成功している5サイトの分析（比較ランキング記事の重要性、優待コンテンツの強さ、用語集からの内部リンク導線等）をもとに企画・作成した。
 | `articles/sbi-account-opening.html` | 解説記事「SBI証券の口座開設方法」。必要書類〜開設後の初期設定までの手順 |
 | `articles/rakuten-account-opening.html` | 解説記事「楽天証券の口座開設方法」。楽天会員連携を含む申し込み手順 |
 | `articles/s-kabu-tips.html` | 解説記事「S株の心得」。コツコツ買う考え方、自分ルールの決め方、4%ルールの応用 |
