@@ -83,6 +83,7 @@
 | `articles/good-company.html` | 解説記事「良い会社の見つけ方」。収益性（ROE/営業利益率）・財務健全性（自己資本比率）・成長性（増収増益）・配当政策等のチェックポイントを解説。既存記事群のハブ的な位置づけ |
 | `articles/broker-comparison.html` | 解説記事「ネット証券おすすめ比較」。SBI証券・楽天証券・三菱UFJ eスマート証券（旧auカブコム証券）・松井証券・マネックス証券・大和コネクト証券の6社比較。国内株手数料の無料化トレンドを反映 |
 | `articles/nisa-vs-ideco.html` | 解説記事「NISAとiDeCoの違いを比較」。引き出し制限・税制優遇・拠出限度額を比較。2026年12月のiDeCo制度改正（拠出限度額・加入年齢引き上げ）を反映 |
+| `articles/yutai-calendar.html` | 解説記事「株主優待カレンダー」。yutai-20.htmlの銘柄を権利確定月（2月/3月/4月/6月/8月/9月/12月）別に再構成。優待ポートフォリオの組み方も解説 |
 | `articles/sbi-account-opening.html` | 解説記事「SBI証券の口座開設方法」。必要書類〜開設後の初期設定までの手順 |
 | `articles/rakuten-account-opening.html` | 解説記事「楽天証券の口座開設方法」。楽天会員連携を含む申し込み手順 |
 | `articles/s-kabu-tips.html` | 解説記事「S株の心得」。コツコツ買う考え方、自分ルールの決め方、4%ルールの応用 |
