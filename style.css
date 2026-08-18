@@ -470,6 +470,63 @@ button:hover {
 }
 
 /* =========================
+   横型タイムライン
+========================= */
+.timeline {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  overflow-x: auto;
+}
+
+.timeline-step {
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+  padding: 14px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  position: relative;
+}
+
+.timeline-step .timeline-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.timeline-step-blue {
+  background: #eaf3fc;
+  color: #1c4a80;
+}
+
+.timeline-step-red {
+  background: #fdeeee;
+  color: #8a2622;
+}
+
+.timeline-step-gray {
+  background: #f0f0f0;
+  color: #444;
+}
+
+.timeline-arrow {
+  align-self: center;
+  color: #aaa;
+  font-size: 18px;
+}
+
+@media (max-width: 600px) {
+  .timeline {
+    flex-direction: column;
+  }
+
+  .timeline-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+/* =========================
    強調テーブル・バッジ
 ========================= */
 .compare-table tr:nth-child(even) td {

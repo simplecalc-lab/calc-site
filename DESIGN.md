@@ -150,7 +150,14 @@
   - `articles/nisa.html`: 課税口座 vs NISA口座の将来資産額比較（積み上げ棒グラフ、正確な複利計算に基づく数値）
 - 上記3記事には`.badge`・`.stat-positive`等による数値の色付き強調も追加
 
-**今後の課題:** 上記3記事以外にも数値データが豊富な記事（nisa-vs-ideco.html、broker-comparison.html、sector-diversification.html等）へのグラフ追加は未着手。次の「改善」サイクルで優先的に対応する。
+**第2弾（同日中に対応済み）:**
+- `articles/nisa-vs-ideco.html`: iDeCo拠出限度額（現行/改正後）の棒グラフ、表セルのhighlight強調
+- `articles/furusato-ideco-nisa.html`: ふるさと納税限度額の減少 vs iDeCo節税額の棒グラフ
+- `articles/sector-diversification.html`: 時価総額上位10社の横棒グラフを追加
+- `articles/broker-comparison.html`: 手数料列に`.badge`（無料=緑、条件付き=青、変動=グレー）を追加
+- `articles/dividend-record-date.html`: 権利付き最終日→権利落ち日→基準日の流れを`.timeline`コンポーネント（新規CSS、色付きステップ＋矢印、モバイルでは縦並びに切り替え）で視覚化（2箇所）
+
+これで数値データが豊富な主要記事へのグラフ・視覚要素追加はひと通り完了。残りは概念的な記事（buffett.html、good-company.html、s-kabu-tips.html等）で、こちらは元々チャート向きではないため`.callout`や`.badge`での強調にとどめている。
 
 ## 計算ページの実装パターン
 

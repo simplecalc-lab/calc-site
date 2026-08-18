@@ -100,6 +100,15 @@
         </div>
 
         <div class="card">
+            <h2>時価総額 上位10社（33業種の1位企業から）</h2>
+            <p>
+                各業種の1位企業の中から、特に時価総額が大きい上位10社をグラフで見てみましょう。
+                業種をまたいで比較すると、規模感の違いがよくわかります。
+            </p>
+            <canvas id="top10-chart" style="margin-top: 10px"></canvas>
+        </div>
+
+        <div class="card">
             <h2>業種別・時価総額上位企業（参考）</h2>
             <p>
                 各業種にどんな企業があるかのイメージをつかむ参考として、時価総額（会社の規模を示す
@@ -272,6 +281,41 @@
         <a href="../privacy.html">プライバシーポリシー</a>
         <a href="../contact.html">お問い合わせ</a>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      new Chart(document.getElementById("top10-chart").getContext("2d"), {
+        type: "bar",
+        data: {
+          labels: [
+            "トヨタ自動車",
+            "三菱UFJ FG",
+            "ソフトバンクG",
+            "キオクシアHD",
+            "ファストリ",
+            "リクルートHD",
+            "三菱商事",
+            "東京海上HD",
+            "三菱重工業",
+            "JT",
+          ],
+          datasets: [
+            {
+              label: "時価総額（兆円、2026年8月中旬頃）",
+              data: [47.7, 43.74, 32.78, 29.3, 24.54, 24.23, 19.21, 14.58, 14.35, 14.14],
+              backgroundColor: "#2e7bd6",
+            },
+          ],
+        },
+        options: {
+          indexAxis: "y",
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { title: { display: true, text: "時価総額（兆円）" } },
+          },
+        },
+      });
+    </script>
 </body>
 
 </html>

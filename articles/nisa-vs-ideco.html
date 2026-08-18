@@ -101,14 +101,16 @@
             </p>
             <table class="compare-table">
                 <tr><th>区分</th><th>現行の上限（月額）</th><th>2026年12月改正後（月額）</th></tr>
-                <tr><td>自営業者等（第1号被保険者）</td><td>6.8万円</td><td>7.5万円</td></tr>
-                <tr><td>会社員（企業年金なし）</td><td>2.3万円</td><td>6.2万円（他の年金制度と合算）</td></tr>
-                <tr><td>会社員・公務員（企業年金あり）</td><td>2.0万円</td><td>6.2万円（他の年金制度と合算）</td></tr>
+                <tr><td>自営業者等（第1号被保険者）</td><td>6.8万円</td><td class="highlight">7.5万円</td></tr>
+                <tr><td>会社員（企業年金なし）</td><td>2.3万円</td><td class="highlight">6.2万円（他の年金制度と合算）</td></tr>
+                <tr><td>会社員・公務員（企業年金あり）</td><td>2.0万円</td><td class="highlight">6.2万円（他の年金制度と合算）</td></tr>
                 <tr><td>専業主婦・主夫（第3号被保険者）</td><td>2.3万円</td><td>2.3万円（変更なし）</td></tr>
             </table>
+            <canvas id="ideco-limit-chart" style="margin-top: 10px"></canvas>
             <p>
                 2026年12月から、iDeCoの拠出限度額と加入可能年齢（65歳未満→70歳未満）が
                 引き上げられる制度改正が予定されています。特に企業年金がある会社員・公務員は、
+                <span class="stat-positive">月額2.0万円→6.2万円（約3.1倍）</span>と、
                 これまでより大幅に上限が広がる見込みです。
             </p>
         </div>
@@ -181,6 +183,38 @@
         <a href="../privacy.html">プライバシーポリシー</a>
         <a href="../contact.html">お問い合わせ</a>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      new Chart(document.getElementById("ideco-limit-chart").getContext("2d"), {
+        type: "bar",
+        data: {
+          labels: [
+            "自営業者等",
+            "会社員（企業年金なし）",
+            "会社員・公務員（企業年金あり）",
+            "専業主婦・主夫",
+          ],
+          datasets: [
+            {
+              label: "現行の上限（万円/月）",
+              data: [6.8, 2.3, 2.0, 2.3],
+              backgroundColor: "#999",
+            },
+            {
+              label: "2026年12月改正後（万円/月）",
+              data: [7.5, 6.2, 6.2, 2.3],
+              backgroundColor: "#2e7bd6",
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: { beginAtZero: true, title: { display: true, text: "拠出限度額（万円/月）" } },
+          },
+        },
+      });
+    </script>
 </body>
 
 </html>

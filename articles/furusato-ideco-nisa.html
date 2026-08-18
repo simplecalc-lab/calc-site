@@ -70,9 +70,10 @@
             </p>
             <table class="compare-table">
                 <tr><th>iDeCoの掛金</th><th>ふるさと納税限度額の減少</th><th>iDeCoの節税額</th><th>差し引きの効果</th></tr>
-                <tr><td>月1万円</td><td>約3,000円減</td><td>約24,480円</td><td>+約21,480円</td></tr>
-                <tr><td>月2.3万円（上限）</td><td>約8,000円減</td><td>約56,304円</td><td>+約48,304円</td></tr>
+                <tr><td>月1万円</td><td>約3,000円減</td><td>約24,480円</td><td class="highlight"><span class="stat-positive">+約21,480円</span></td></tr>
+                <tr><td>月2.3万円（上限）</td><td>約8,000円減</td><td>約56,304円</td><td class="highlight"><span class="stat-positive">+約48,304円</span></td></tr>
             </table>
+            <canvas id="furusato-chart" style="margin-top: 10px"></canvas>
             <p>
                 ふるさと納税の限度額は少し減りますが、iDeCo自体の節税効果の方が大きいため、
                 トータルではプラスになるケースが多いことがわかります。iDeCoの掛金控除を
@@ -157,6 +158,33 @@
         <a href="../privacy.html">プライバシーポリシー</a>
         <a href="../contact.html">お問い合わせ</a>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      new Chart(document.getElementById("furusato-chart").getContext("2d"), {
+        type: "bar",
+        data: {
+          labels: ["iDeCo月1万円", "iDeCo月2.3万円（上限）"],
+          datasets: [
+            {
+              label: "ふるさと納税限度額の減少（円）",
+              data: [-3000, -8000],
+              backgroundColor: "#e53935",
+            },
+            {
+              label: "iDeCoの節税額（円）",
+              data: [24480, 56304],
+              backgroundColor: "#2e9e5b",
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: { title: { display: true, text: "金額（円、年収500万円モデルケース）" } },
+          },
+        },
+      });
+    </script>
 </body>
 
 </html>
