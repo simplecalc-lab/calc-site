@@ -131,9 +131,26 @@
 - `.compare-table`: 比較表用のテーブルスタイル（dividend.html/fire.htmlの内訳テーブルにも流用）
 - `.holding-row` / `.add-row` / `.remove-row` / `.saved-note` / `.clear-holdings`: dividend.htmlの複数銘柄入力フォーム用スタイル
 - `.push-text` / `.note` / `.note-small`: 補足テキスト用のスタイル
+- `.callout` / `.callout-tip`（緑）/ `.callout-warning`（赤）/ `.callout-info`（青）: 色付きの注意・ポイントボックス（2026年8月追加。全記事末尾の免責事項パラグラフをこの`.callout-info`に統一変換済み）
+- `.badge` / `.badge-green` / `.badge-red` / `.badge-blue` / `.badge-gray`: インラインの強調バッジ
+- `.stat-positive`（緑太字）/ `.stat-negative`（赤太字）: プラス/マイナスの数値強調
+- `.compare-table tr:nth-child(even)` の縞模様、`td.highlight`/`th.highlight` でのセル強調
 - 600px以下でレスポンシブ対応（余白・フォントサイズ縮小、ヘッダーnavと保有銘柄入力行は折り返し）
 
 `css/` ディレクトリは存在するが中身は空で、現状未使用。
+
+## 記事のビジュアル強化（2026年8月）
+
+ユーザーから「記事が文章中心すぎる、グラフ・表・色をもっと使ってほしい」とフィードバックがあり、以下を実施：
+
+- 全29記事＋compound.html＋guide/getting-started.htmlの末尾免責事項を`.callout-info`ボックスに統一変換（スクリプトで最後の`<p style="font-size: 12px; color: #888">`ブロックを対象に変換）
+- Chart.jsによるグラフを新規追加：
+  - `articles/market-crashes.html`: 3ショックの底値からの回復倍率（3年後/5年後）を棒グラフで比較
+  - `articles/mufg-case-study.html`: 取得価格ベース配当利回りの推移（折れ線）、銀行預金 vs 株式投資の資産増加額比較（横棒グラフ）
+  - `articles/nisa.html`: 課税口座 vs NISA口座の将来資産額比較（積み上げ棒グラフ、正確な複利計算に基づく数値）
+- 上記3記事には`.badge`・`.stat-positive`等による数値の色付き強調も追加
+
+**今後の課題:** 上記3記事以外にも数値データが豊富な記事（nisa-vs-ideco.html、broker-comparison.html、sector-diversification.html等）へのグラフ追加は未着手。次の「改善」サイクルで優先的に対応する。
 
 ## 計算ページの実装パターン
 

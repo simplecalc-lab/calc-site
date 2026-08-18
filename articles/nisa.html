@@ -124,14 +124,21 @@
         <div class="card">
             <h2>シミュレーション例</h2>
             <p>
-                例えば、毎月3万円を新NISAのつみたて投資枠で年利5%を想定して20年間積み立てた場合、
-                積立元本は720万円ですが、複利効果によって将来の資産はそれを大きく上回る計算になります。
-                通常の課税口座であれば運用益に約20%の税金がかかりますが、NISA口座であればこの税金がゼロになるため、
-                同じ運用成績でも手元に残る金額に差が生まれます。
+                例えば、毎月3万円を年利5%を想定して20年間積み立てた場合、積立元本は720万円、
+                運用成果を含めた将来の資産は約1,233万円（運用益は約513万円）になる計算です。
             </p>
+            <table class="compare-table">
+                <tr><th></th><th>課税口座</th><th>NISA口座</th></tr>
+                <tr><td>将来の資産額</td><td>約1,129万円</td><td class="highlight">約1,233万円</td></tr>
+                <tr><td>運用益への税金</td><td>約104万円</td><td class="highlight">0円</td></tr>
+            </table>
+            <canvas id="nisa-tax-chart" style="margin-top: 10px"></canvas>
             <p>
-                実際の金額を試算したい場合は<a href="../monthly.html">積立シミュレーター</a>に
-                毎月の積立額・想定利回り・年数を入力してみてください。
+                同じ運用成績でも、NISA口座であれば運用益への約20.315%の税金がかからないため、
+                課税口座と比べて<span class="stat-positive">約104万円</span>多く手元に残る計算に
+                なります。実際の金額を試算したい場合は
+                <a href="../monthly.html">積立シミュレーター</a>に毎月の積立額・想定利回り・年数を
+                入力してみてください。
             </p>
         </div>
 
@@ -183,10 +190,13 @@
                 後継として2027年1月に「こどもNISA」の開始が予定されています。
                 詳しくは<a href="junior-nisa.html">子供NISAとは？の解説記事</a>をご覧ください。
             </p>
-            <p style="font-size: 12px; color: #888">
+            <div class="callout callout-info">
+                <span class="callout-title">ご注意</span>
+                <p>
                 ※本記事は制度の一般的な説明を目的としたものであり、投資の勧誘や助言を目的としたものではありません。
                 制度の詳細・最新情報は金融庁や各証券会社の公式情報をご確認ください。
             </p>
+            </div>
         </div>
     </div>
 
@@ -195,6 +205,34 @@
         <a href="../privacy.html">プライバシーポリシー</a>
         <a href="../contact.html">お問い合わせ</a>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      new Chart(document.getElementById("nisa-tax-chart").getContext("2d"), {
+        type: "bar",
+        data: {
+          labels: ["課税口座", "NISA口座"],
+          datasets: [
+            {
+              label: "元本（円）",
+              data: [7200000, 7200000],
+              backgroundColor: "#ccc",
+            },
+            {
+              label: "運用益（税引後、円）",
+              data: [4088645, 5131010],
+              backgroundColor: "#2e7bd6",
+            },
+          ],
+        },
+        options: {
+          scales: {
+            x: { stacked: true },
+            y: { stacked: true, title: { display: true, text: "将来の資産額（円）" } },
+          },
+        },
+      });
+    </script>
 </body>
 
 </html>

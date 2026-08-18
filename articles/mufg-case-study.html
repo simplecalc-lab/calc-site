@@ -120,6 +120,7 @@
                 <tr><td>2024年3月期</td><td>8,200円</td><td>約7.1%</td></tr>
                 <tr><td>2025年3月期</td><td>12,800円</td><td>約11.0%</td></tr>
             </table>
+            <canvas id="yoc-chart" style="margin-top: 10px"></canvas>
             <p>
                 購入時点では約3.8%だった利回りが、増配を重ねた結果、取得価格に対して約11%に
                 まで上昇した計算になります。株価が同じ水準のままだったとしても、増配が続けば
@@ -152,12 +153,16 @@
                 一方、三菱UFJ株を保有していた場合は、含み益が約38万円、累計の配当受取額が
                 約4万円強と、資産の増加額には非常に大きな差が生まれました。
             </p>
-            <p style="font-size: 12px; color: #888">
-                ※ただし、これは「結果的にこの銘柄がうまくいった」という一例に過ぎません。
+            <canvas id="bank-vs-stock-chart" style="margin-top: 10px"></canvas>
+            <div class="callout callout-warning">
+                <span class="callout-title">注意</span>
+                <p>
+                これは「結果的にこの銘柄がうまくいった」という一例に過ぎません。
                 預金は元本が保証されているのに対し、株式は元本割れするリスクがあります。
                 銀行預金には「安全性」、株式投資には「収益性とリスク」というそれぞれの役割があり、
                 どちらが優れているというものではありません。
-            </p>
+                </p>
+            </div>
         </div>
 
         <div class="card">
@@ -191,13 +196,16 @@
                 一つの事例であり、将来の投資成果を保証するものではありませんが、長期保有と
                 増配の組み合わせがもたらす効果をイメージする参考にしていただければと思います。
             </p>
-            <p style="font-size: 12px; color: #888">
+            <div class="callout callout-info">
+                <span class="callout-title">ご注意</span>
+                <p>
                 ※本記事の株価・配当金データは、日本経済新聞および三菱UFJフィナンシャル・グループ
                 公式IR情報をもとにしています。普通預金金利は三菱UFJ銀行の金利改定に関する
                 公式発表をもとにした概算です。購入価格は正確な取引記録ではなく、当時の株価水準を
                 踏まえた仮定に基づく試算です。本記事は特定銘柄・預金商品への投資/預入を
                 推奨・勧誘するものではなく、投資の最終判断はご自身の責任で行ってください。
             </p>
+            </div>
         </div>
 
         <!-- CTA -->
@@ -214,6 +222,58 @@
         <a href="../privacy.html">プライバシーポリシー</a>
         <a href="../contact.html">お問い合わせ</a>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      new Chart(document.getElementById("yoc-chart").getContext("2d"), {
+        type: "line",
+        data: {
+          labels: [
+            "2019年3月期",
+            "2021年3月期",
+            "2023年3月期",
+            "2024年3月期",
+            "2025年3月期",
+          ],
+          datasets: [
+            {
+              label: "取得価格ベース配当利回り（%）",
+              data: [3.8, 4.3, 5.5, 7.1, 11.0],
+              borderColor: "#2e9e5b",
+              backgroundColor: "#2e9e5b",
+              tension: 0.3,
+              borderWidth: 2,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: { beginAtZero: true, title: { display: true, text: "利回り（%）" } },
+          },
+        },
+      });
+
+      new Chart(document.getElementById("bank-vs-stock-chart").getContext("2d"), {
+        type: "bar",
+        data: {
+          labels: ["普通預金（6年間の利息）", "三菱UFJ株（含み益＋配当累計）"],
+          datasets: [
+            {
+              label: "増加額（円）",
+              data: [200, 425600],
+              backgroundColor: ["#999", "#2e7bd6"],
+            },
+          ],
+        },
+        options: {
+          indexAxis: "y",
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { title: { display: true, text: "資産の増加額（円、税引前概算）" } },
+          },
+        },
+      });
+    </script>
 </body>
 
 </html>

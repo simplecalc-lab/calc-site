@@ -423,3 +423,100 @@ button:hover {
 .clear-holdings:hover {
   opacity: 0.8;
 }
+
+/* =========================
+   Callout boxes（記事の視覚要素強化）
+========================= */
+.callout {
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-top: 14px;
+  border-left: 5px solid;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.callout p {
+  margin: 0;
+  color: inherit;
+}
+
+.callout p + p {
+  margin-top: 8px;
+}
+
+.callout-tip {
+  background: #edf9f0;
+  border-color: #2e9e5b;
+  color: #1e5c37;
+}
+
+.callout-warning {
+  background: #fdeeee;
+  border-color: #e53935;
+  color: #8a2622;
+}
+
+.callout-info {
+  background: #eaf3fc;
+  border-color: #2e7bd6;
+  color: #1c4a80;
+}
+
+.callout-title {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* =========================
+   強調テーブル・バッジ
+========================= */
+.compare-table tr:nth-child(even) td {
+  background: #fafbfc;
+}
+
+.compare-table td.highlight,
+.compare-table th.highlight {
+  background: #eaf3fc;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.badge-green {
+  background: #edf9f0;
+  color: #1e5c37;
+}
+
+.badge-red {
+  background: #fdeeee;
+  color: #8a2622;
+}
+
+.badge-blue {
+  background: #eaf3fc;
+  color: #1c4a80;
+}
+
+.badge-gray {
+  background: #f0f0f0;
+  color: #555;
+}
+
+/* 数値の強調（プラス/マイナス） */
+.stat-positive {
+  color: #1e8449;
+  font-weight: bold;
+}
+
+.stat-negative {
+  color: #c0392b;
+  font-weight: bold;
+}
