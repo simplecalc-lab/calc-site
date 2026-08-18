@@ -303,6 +303,12 @@ button:hover {
   opacity: 0.7;
 }
 
+/* FIREは英字のみのため、日本語のnav項目と並ぶとフォントの高さの違いで浮いて見える */
+.nav a[href$="fire.html"] {
+  position: relative;
+  top: 1px;
+}
+
 /* スマホ */
 
 @media (max-width: 600px) {
