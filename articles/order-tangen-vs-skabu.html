@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>単元株とS株、注文方法はこう違う｜成行・指値・約定タイミングを比較</title>
+    <meta name="description" content="単元株（100株）とS株（単元未満株）は、同じ株でも注文の出し方が異なります。成行・指値の選べる範囲や、SBI証券・楽天証券それぞれの約定タイミングの違いを初心者向けに解説します。">
+
+    <link rel="stylesheet" href="../style.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QR293VCKN2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+
+      gtag("config", "G-QR293VCKN2");
+    </script>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y4dbh1d4xr");
+    </script>
+</head>
+
+<body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <a href="../index.html">Money Calculator</a>
+        </div>
+
+        <nav class="nav">
+          <a href="../index.html">ホーム</a>
+          <a href="../compound.html">複利</a>
+          <a href="../monthly.html">積立</a>
+          <a href="../fire.html">FIRE</a>
+          <a href="../dividend.html">配当</a>
+          <a href="../compare.html">比較</a>
+          <a href="../sitemap.html">記事一覧</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+        <h1>単元株とS株、注文方法はこう違う</h1>
+        <p class="subtitle">成行・指値・約定タイミングを初心者向けに比較</p>
+
+        <div class="card">
+            <p>
+                <a href="tangen-vs-skabu.html">前回の記事</a>では、単元株（100株）とS株（1株）の
+                金額差や、議決権・株主優待といった権利の違いを解説しました。今回は一歩進んで、
+                「実際に注文するとき、画面上で何が違うのか」という操作面にフォーカスします。
+                同じ銘柄でも、単元株とS株では注文の出し方や約定するタイミングが大きく異なります。
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>単元株（通常注文）の買い方</h2>
+            <p>
+                100株単位の通常の株式注文では、「成行（なりゆき）注文」と「指値（さしね）注文」の
+                どちらかを選べます。
+            </p>
+            <ul>
+                <li>
+                    <strong>成行注文</strong>：価格を指定せず、「いくらでもいいから買う／売る」という注文。
+                    条件が合えばすぐに約定しやすい一方、想定より高い価格・安い価格で約定することもあります
+                </li>
+                <li>
+                    <strong>指値注文</strong>：「この価格以下になったら買う」「この価格以上になったら売る」
+                    というように、希望する価格を指定する注文。価格はコントロールできますが、
+                    条件に届かなければ約定しないこともあります
+                </li>
+            </ul>
+            <p>
+                東京証券取引所の取引時間（前場9:00〜11:30、後場12:30〜15:30）中は株価がリアルタイムに
+                動いており、注文もその場でリアルタイムに約定します。
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>S株（単元未満株）の買い方は証券会社ごとに違う</h2>
+            <p>
+                S株は「1株から買える」点は共通していますが、注文方法や約定するタイミングは
+                証券会社によって仕組みが異なります。ここではSBI証券と楽天証券を例に見てみます。
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>SBI証券のS株：1日3回のタイミングで約定</h2>
+            <p>
+                SBI証券のS株は<strong>成行注文のみ</strong>で、指値注文はできません。
+                また、取引時間中にリアルタイムで約定するのではなく、<strong>1日3回</strong>、
+                決まったタイミングでまとめて約定する仕組みです。注文を出した時刻によって、
+                次のどの回に約定するかが決まります。
+            </p>
+            <div class="timeline">
+                <div class="timeline-step timeline-step-blue">
+                    <span class="timeline-label">9:00</span>
+                    前場寄付のタイミングで約定
+                </div>
+                <div class="timeline-arrow">→</div>
+                <div class="timeline-step timeline-step-blue">
+                    <span class="timeline-label">12:30</span>
+                    後場寄付のタイミングで約定
+                </div>
+                <div class="timeline-arrow">→</div>
+                <div class="timeline-step timeline-step-blue">
+                    <span class="timeline-label">15:30</span>
+                    大引けのタイミングで約定
+                </div>
+            </div>
+            <p>
+                例えば15:30の約定タイミングを過ぎてから注文を出した場合、次に約定するのは
+                翌営業日の9:00になります。「注文を出した瞬間の株価」で約定するわけではない点に
+                注意が必要です。
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>楽天証券のかぶミニ®：2種類の取引方法がある</h2>
+            <p>
+                楽天証券の「かぶミニ®」は、「リアルタイム取引」と「寄付取引」という
+                2つの注文方法を選べるのが特徴です。
+            </p>
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <tr><th>取引方法</th><th>約定タイミング</th><th>指値注文</th><th>コスト</th></tr>
+                    <tr>
+                        <td class="highlight">リアルタイム取引</td>
+                        <td>取引時間中（9:00〜11:30、12:30〜15:25）いつでも</td>
+                        <td><span class="badge badge-green">可能</span></td>
+                        <td>スプレッド0.22%</td>
+                    </tr>
+                    <tr>
+                        <td>寄付取引</td>
+                        <td>前場の寄付（9:00）のみ</td>
+                        <td><span class="badge badge-red">不可</span>（成行のみ）</td>
+                        <td><span class="badge badge-green">無料</span></td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                「今すぐの株価で買いたい・指値で狙いたい」場合はリアルタイム取引、
+                「コストをかけずに翌朝の寄付価格で買えればよい」場合は寄付取引、というように
+                目的に応じて使い分けられます。なお、取引できる銘柄数はリアルタイム取引と
+                寄付取引で異なる場合があるため、狙っている銘柄がどちらに対応しているかは
+                事前に確認しておきましょう。
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>注文方法まるごと比較</h2>
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <tr><th>注文方法</th><th>成行</th><th>指値</th><th>約定タイミング</th></tr>
+                    <tr><td>単元株（通常注文）</td><td><span class="badge badge-green">○</span></td><td><span class="badge badge-green">○</span></td><td>取引時間中リアルタイム</td></tr>
+                    <tr><td>SBI証券 S株</td><td><span class="badge badge-green">○</span></td><td><span class="badge badge-red">×</span></td><td>1日3回（9:00/12:30/15:30）</td></tr>
+                    <tr><td>楽天証券 かぶミニ®（リアルタイム）</td><td><span class="badge badge-green">○</span></td><td><span class="badge badge-green">○</span></td><td>取引時間中リアルタイム</td></tr>
+                    <tr><td>楽天証券 かぶミニ®（寄付）</td><td><span class="badge badge-green">○</span></td><td><span class="badge badge-red">×</span></td><td>前場寄付（9:00）のみ</td></tr>
+                </table>
+            </div>
+            <p style="font-size: 12px; color: #888">
+                ※取引ルール・対応銘柄数は変更される場合があります。最新情報は各社公式サイトでご確認ください。
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>結局、何に気をつければいい？</h2>
+            <ul>
+                <li>
+                    S株は基本的に「今この瞬間の価格」で買えるとは限らないと理解しておく。
+                    急な値動きのときに「思ったより高く／安く約定した」となっても慌てないようにしましょう
+                </li>
+                <li>
+                    価格にこだわりたい場合（指値を使いたい場合）は、単元株での注文か、
+                    楽天証券のかぶミニ®リアルタイム取引を検討する
+                </li>
+                <li>
+                    コストを抑えて少額からコツコツ買いたい場合は、SBI証券のS株や
+                    楽天証券の寄付取引が向いています
+                </li>
+            </ul>
+            <p>
+                コツコツ買い増していく考え方については<a href="s-kabu-tips.html">S株の心得</a>、
+                金額や権利の違いについては<a href="tangen-vs-skabu.html">100株（単元株）とS株、何が違う？</a>
+                もあわせてご覧ください。
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>まとめ</h2>
+            <p>
+                単元株は成行・指値どちらも選べてリアルタイムに約定するのに対し、S株は証券会社によって
+                指値の可否や約定タイミングが異なります。SBI証券のS株は1日3回のタイミングで約定し、
+                楽天証券のかぶミニ®はリアルタイム取引と寄付取引を使い分けられます。仕組みを理解した上で、
+                自分の目的に合った注文方法を選びましょう。
+            </p>
+            <div class="callout callout-info">
+                <span class="callout-title">ご注意</span>
+                <p>
+                ※本記事は各社の取引制度の一般的な説明を目的とした情報提供であり、投資の勧誘や助言を
+                目的としたものではありません。注文方法・約定タイミング・対応銘柄数は証券会社の
+                サービス変更により変わる場合があるため、実際の取引前に必ず公式サイトで最新情報を
+                ご確認ください。投資の最終判断はご自身の責任で行ってください。
+            </p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="card">
+            <h2>少額から株を始めてみるなら</h2>
+            <p class="note-small">※口座開設は無料・スマホで申し込みできます</p>
+            <!-- TODO: アクセストレード等での提携後、実際のアフィリエイトURLに差し替える -->
+            <a href="../compare.html" class="cta"> ▶ 証券会社を比較して口座を開設する </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <a href="../about.html">運営者情報</a>
+        <a href="../privacy.html">プライバシーポリシー</a>
+        <a href="../contact.html">お問い合わせ</a>
+    </footer>
+</body>
+
+</html>
