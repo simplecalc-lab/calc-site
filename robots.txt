@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://simplecalc-lab.github.io/calc-site/sitemap.xml
