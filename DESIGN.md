@@ -223,6 +223,7 @@ A8.net落選理由は不明。一般的にASP審査で重視されやすい項�
 - 新しいページを追加した際は、`sitemap.xml`にも忘れずにURLを追加すること（sitemap.html・DESIGN.mdの一覧表と合わせて3箇所への追記が必要になった点に注意）
 - Google Search Consoleに`calc.side.project@gmail.com`で登録完了（2026年8月）。プロパティは「URLプレフィックス」形式（`https://simplecalc-lab.github.io/calc-site/`）、所有権確認は既存のGA4トラッキングコードを使った自動確認で完了。`sitemap.xml`も送信済み（送信直後は「取得できませんでした」と表示されるが、実ファイルは200 OKで正常配信されており、Googleが未クロールなだけの一時的な表示。半日〜1日待って再確認する）
 - GA4・Clarityと同じ`calc.side.project@gmail.com`でSearch Consoleも統一し、管理を一本化した
+- Bing Webmaster Toolsにも登録完了（2026年8月）。「Google Search Consoleからインポート」機能を使用。初回はOAuth時に別のGoogleアカウントが選択されてしまい「GSCのサイトが見つかりません」と表示されたが、再試行時に`calc.side.project@gmail.com`を明示的に選択して解決。インポートにより所有権確認・`sitemap.xml`送信とも自動完了し、サイトマップは状態「成功」・発見されたURL40件（実ページ数と完全一致）を確認済み
 
 ## OGP・favicon・404ページ（2026年8月）
 
@@ -240,5 +241,4 @@ A8.net落選理由は不明。一般的にASP審査で重視されやすい項�
 - 空の `css/` ディレクトリの扱い（削除 or 用途決定）
 - 計算後CTA表示の仕組み（`compound.html` にのみ存在）を他ページにも展開するか検討
 - サイトの改善が一巡したら、アクセストレードへ登録・提携申請する
-- Bing Webmaster Toolsへの未登録（Google Search Console確認済みサイトはインポートしやすい）。Googleに次ぐ優先度のオーガニック流入対策
 - FAQ形式のセクション（sbi-account-opening.html等）へのFAQPage構造化データ（schema.org）付与は、リッチスニペット獲得の余地はあるが未着手
