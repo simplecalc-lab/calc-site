@@ -221,7 +221,16 @@ A8.net落選理由は不明。一般的にASP審査で重視されやすい項�
 - `sitemap.xml`を新規作成。全40ページを`<loc>`（URL）・`<lastmod>`（git履歴から取得した実際の最終更新日）・`<changefreq>`・`<priority>`付きで記載（トップページ1.0、計算ツール/比較0.8、記事0.6、about/contact/privacy0.3）
 - `robots.txt`を新規作成し、`Sitemap:`行で`sitemap.xml`の場所を明示
 - 新しいページを追加した際は、`sitemap.xml`にも忘れずにURLを追加すること（sitemap.html・DESIGN.mdの一覧表と合わせて3箇所への追記が必要になった点に注意）
-- **未対応・次の一手:** Google Search Consoleへの登録（サイト所有権の確認）と、`sitemap.xml`の手動送信がまだ済んでいない。これはASPログインと同様、運営者本人のGoogleアカウントでの作業が必要なため、Claude側では実行できない。オーガニック流入を増やす上で最も優先度の高い未対応タスク
+- Google Search Consoleに`calc.side.project@gmail.com`で登録完了（2026年8月）。プロパティは「URLプレフィックス」形式（`https://simplecalc-lab.github.io/calc-site/`）、所有権確認は既存のGA4トラッキングコードを使った自動確認で完了。`sitemap.xml`も送信済み（送信直後は「取得できませんでした」と表示されるが、実ファイルは200 OKで正常配信されており、Googleが未クロールなだけの一時的な表示。半日〜1日待って再確認する）
+- GA4・Clarityと同じ`calc.side.project@gmail.com`でSearch Consoleも統一し、管理を一本化した
+
+## OGP・favicon・404ページ（2026年8月）
+
+- 「オーガニック流入を増やす他の対策」の一環として、OGPタグ・favicon・カスタム404ページを追加
+- 全40ページの`<meta name="description">`直後に、`og:type`（記事は`article`、ツール/トップ/utility系は`website`）・`og:title`・`og:description`・`og:url`・`og:site_name`（"Money Calculator"）・`twitter:card`（`summary`）を埋め込み済み。X/LINE/Slack等でリンクを共有した際のプレビュー表示に対応。og:imageは専用の画像アセットが無いため未設定（ロゴ/バナー画像を用意したら追加を検討）
+- favicon: 画像アセットを用意せず、絵文字（📈）をSVGのdata URIとして埋め込む軽量な方式を採用（`<link rel="icon" href="data:image/svg+xml,...">`）。全40ページの`<meta name="viewport">`直後に統一で埋め込み済み
+- `404.html`をルートに新規作成。GitHub Pagesは404発生時にリポジトリ直下の`404.html`を自動的に表示する仕様のため、これだけでリンク切れ時の案内ページとして機能する。`<meta name="robots" content="noindex">`を設定し検索エンジンにインデックスさせないようにしている
+- 新しいページを追加する際は、OGPタグ・faviconも他のページと同様に含め忘れないこと（GA4・Clarityと同様、コピー漏れに注意）
 
 ## 未整備・今後の検討事項
 
@@ -231,3 +240,5 @@ A8.net落選理由は不明。一般的にASP審査で重視されやすい項�
 - 空の `css/` ディレクトリの扱い（削除 or 用途決定）
 - 計算後CTA表示の仕組み（`compound.html` にのみ存在）を他ページにも展開するか検討
 - サイトの改善が一巡したら、アクセストレードへ登録・提携申請する
+- Bing Webmaster Toolsへの未登録（Google Search Console確認済みサイトはインポートしやすい）。Googleに次ぐ優先度のオーガニック流入対策
+- FAQ形式のセクション（sbi-account-opening.html等）へのFAQPage構造化データ（schema.org）付与は、リッチスニペット獲得の余地はあるが未着手
