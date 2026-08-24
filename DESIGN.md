@@ -113,6 +113,7 @@
 **競合分析に基づく5記事シリーズ（完了）:** broker-comparison.html / nisa-vs-ideco.html / yutai-calendar.html / high-dividend-stocks.html / ipo.html の5本は、同ジャンルで成功している5サイトの分析（比較ランキング記事の重要性、優待コンテンツの強さ、用語集からの内部リンク導線等）をもとに企画・作成した。
 | `articles/sbi-account-opening.html` | 解説記事「SBI証券の口座開設方法」。必要書類〜開設後の初期設定までの手順 |
 | `articles/rakuten-account-opening.html` | 解説記事「楽天証券の口座開設方法」。楽天会員連携を含む申し込み手順 |
+| `articles/bank-securities-linking.html` | 解説記事「証券口座と一緒に使いたい銀行口座」。SBI証券×ドコモSMTBネット銀行（旧：住信SBIネット銀行、2026年8月3日社名変更を反映）のSBIハイブリッド預金、楽天証券×楽天銀行のマネーブリッジ（2026年8月時点の優遇金利0.48%を公式プレスリリースで確認済み）を比較。sbi/rakuten-account-opening.htmlと相互リンク |
 | `articles/tangen-vs-skabu.html` | 解説記事「100株（単元株）とS株、何が違う？」。2018年10月の売買単位100株統一の経緯、株価別の金額比較表（単元株100株 vs S株1株）、議決権・株主優待・配当の権利比較、S株から100株到達までのステップアップをタイムライン図で解説。s-kabu-tips.htmlの前段に位置づく基礎編 |
 | `articles/order-tangen-vs-skabu.html` | 解説記事「単元株とS株、注文方法はこう違う」。tangen-vs-skabu.htmlの続編として、実際の注文操作にフォーカス。単元株（成行/指値どちらも可・リアルタイム約定）、SBI証券のS株（成行のみ・1日3回の約定タイミングをタイムライン図で解説）、楽天証券のかぶミニ®（リアルタイム取引0.22%スプレッド vs 寄付取引無料の2方式）を比較表で整理 |
 | `articles/s-kabu-tips.html` | 解説記事「S株の心得」。コツコツ買う考え方、自分ルールの決め方、4%ルールの応用 |
@@ -183,6 +184,7 @@
 - `compare.html` は自分自身が比較ページのため、CTAは `guide/getting-started.html`（口座開設までの流れ）へリンクしている
 - `compound.html` は計算実行後にのみCTAを表示する仕組み（`#cta-after-result`）を持つが、他のページ（monthly/fire/dividend）は常時表示のCTAカードのみで、計算後CTAの仕組みは未導入
 - CTA文言・配置はページごとに微妙に異なり統一されていない
+- 銀行口座（ドコモSMTBネット銀行/旧住信SBIネット銀行・楽天銀行）単体のアフィリエイト案件は、簡単な調査では「口座開設」向けプログラムが見つからず、住宅ローンやカードローンなど別商材向けの案件が中心だった（2026年8月時点、要ASP側での要確認）。そのため`bank-securities-linking.html`のCTAは証券会社比較（`compare.html`）へのリンクのままにしてある
 
 ## アクセストレード再申請に向けた準備
 
