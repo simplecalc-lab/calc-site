@@ -141,6 +141,7 @@
 - `.callout` / `.callout-tip`（緑）/ `.callout-warning`（赤）/ `.callout-info`（青）: 色付きの注意・ポイントボックス（2026年8月追加。全記事末尾の免責事項パラグラフをこの`.callout-info`に統一変換済み）
 - `.badge` / `.badge-green` / `.badge-red` / `.badge-blue` / `.badge-gray`: インラインの強調バッジ
 - `.stat-positive`（緑太字）/ `.stat-negative`（赤太字）: プラス/マイナスの数値強調
+- `.point-box` / `.point-box-title`: 「💡この記事のポイント」ボックス（黄色背景・太枠、2026年8月追加）。全記事（articles/全29ファイル＋guide/getting-started.html＋compare.html、計31ファイル）の冒頭カード直後に、その記事の要点3つを箇条書きで設置済み。新しい記事を書く際は、導入カードの直後にこのボックスを追加する運用とする
 - `.compare-table tr:nth-child(even)` の縞模様、`td.highlight`/`th.highlight` でのセル強調
 - 600px以下でレスポンシブ対応（余白・フォントサイズ縮小、ヘッダーnavと保有銘柄入力行は折り返し）
 
