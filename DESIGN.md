@@ -143,7 +143,7 @@
 - `.badge` / `.badge-green` / `.badge-red` / `.badge-blue` / `.badge-gray`: インラインの強調バッジ
 - `.stat-positive`（緑太字）/ `.stat-negative`（赤太字）: プラス/マイナスの数値強調
 - `.point-box` / `.point-box-title`: 「💡この記事のポイント」ボックス（黄色背景・太枠、2026年8月追加）。全記事（articles/全29ファイル＋guide/getting-started.html＋compare.html、計31ファイル）の冒頭カード直後に、その記事の要点3つを箇条書きで設置済み。新しい記事を書く際は、導入カードの直後にこのボックスを追加する運用とする
-- `.illustration`: 「文章だけでイメージしにくい」というフィードバックを受けて2026年8月追加。画像ファイルを使わず、内容ごとに手描きするインラインSVGを`<div class="illustration">`で中央寄せ・薄いグレー背景の枠に収める軽量な図解コンポーネント。tangen-vs-skabu.html（単元株100株のグリッド vs S株1株の比較）、yen-exchange-rate.html（1ドル=100円/150円のコイン比較）、nisa.html（つみたて投資枠＋成長投資枠＝生涯1,800万円の箱図）、tokio-marine.html（1株→15株の分割図）の4記事に試験導入済み。記事ごとに図の種類が異なるため、テンプレート化はせず都度手描きする方針。残り全記事への展開は今後継続
+- `.illustration`: 「文章だけでイメージしにくい」というフィードバックを受けて2026年8月追加。画像ファイルを使わず、内容ごとに手描きするインラインSVGを`<div class="illustration">`で中央寄せ・薄いグレー背景の枠に収める軽量な図解コンポーネント。tangen-vs-skabu.html（単元株100株のグリッド vs S株1株の比較）、yen-exchange-rate.html（1ドル=100円/150円のコイン比較）、nisa.html（つみたて投資枠＋成長投資枠＝生涯1,800万円の箱図）、tokio-marine.html（1株→15株の分割図）、nisa-vs-ideco.html（🔓NISA／🔒iDeCoの絵文字ロック比較）、ideco-nencho.html（年末調整申告書の記入欄を再現したフォームモックアップ）、s-kabu-tips.html（株価の上下と購入量をバブルサイズで表すドルコスト平均法の図）の7記事に導入済み。junior-nisa.html・stock-loss-tax.htmlは、時系列の流れを表すのに適していたため新規SVGではなく既存の`.timeline`コンポーネントを再利用。記事ごとに図の種類が異なるため、テンプレート化はせず都度手描きする方針。残り全記事への展開は今後継続
 - `.compare-table tr:nth-child(even)` の縞模様、`td.highlight`/`th.highlight` でのセル強調
 - 600px以下でレスポンシブ対応（余白・フォントサイズ縮小、ヘッダーnavと保有銘柄入力行は折り返し）
 
