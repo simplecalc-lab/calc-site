@@ -508,6 +508,24 @@ button:hover {
 }
 
 /* =========================
+   簡易イラスト（SVG図解）
+========================= */
+.illustration {
+  display: flex;
+  justify-content: center;
+  background: #fafbfc;
+  border-radius: 12px;
+  padding: 10px;
+  margin-top: 14px;
+}
+
+.illustration svg {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+}
+
+/* =========================
    横型タイムライン
 ========================= */
 .timeline {
