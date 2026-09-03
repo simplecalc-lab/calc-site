@@ -277,6 +277,12 @@ button:hover {
   align-items: center;
 }
 
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .logo a {
   color: #fff;
   text-decoration: none;
@@ -284,6 +290,12 @@ button:hover {
   font-size: 22px;
   font-weight: 600;
   letter-spacing: 0.02em;
+}
+
+.logo-sub {
+  color: var(--gold-soft);
+  font-size: 11px;
+  letter-spacing: 0.03em;
 }
 
 .nav {
