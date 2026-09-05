@@ -89,6 +89,7 @@
 | `articles/sector-diversification.html` | 解説記事「東証33業種で考える分散投資のすすめ」。東証33業種一覧・時価総額トップ3企業（客観データ）と分散の考え方 |
 | `articles/glossary.html` | 「株式用語辞典」。ROE・PER・PBR等の指標、注文方法、権利関連、投資の考え方に関する用語を解説 |
 | `articles/yen-exchange-rate.html` | 解説記事「円安とは？円高とは？」。為替の仕組みと、輸出/輸入関連など業種への影響、為替ヘッジの考え方 |
+| `articles/interest-rate-rise.html` | 解説記事「金利が上昇すると？」（2026年9月追加）。債券価格が下がりやすい理由・株式（業種別）/預金/住宅ローン/為替への影響を解説。sector-guide.html・sector-diversification.html・yen-exchange-rate.htmlと相互リンク |
 | `articles/dividend-record-date.html` | 解説記事「配当基準日とは？」。権利付き最終日・権利落ち日（T+2決済ベース）、期末配当/中間配当、権利落ち日の株価下落傾向を解説 |
 | `articles/popular-terms.html` | 解説記事「オルカン・S&P500とは？」。オルカン・S&P500・NASDAQ100・日経平均・TOPIX・NYダウ、インデックス/アクティブファンド、信託報酬、ETFを解説 |
 | `articles/mufg-case-study.html` | 体験談記事「三菱UFJ株を6年間保有した結果」。2019年3月期→2025年3月期の配当実績（公式IR確認済み、22円→64円）と株価推移（日経公式データ）、取得価格ベース利回りの変化、普通預金だった場合との比較を解説。購入価格は実際の取引記録ではなく年間値動きに基づく仮定と明記 |
