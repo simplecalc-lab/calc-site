@@ -88,6 +88,7 @@
 | `articles/sector-guide.html` | 解説記事「長期投資で注目したい業種・セクターの選び方」。業種ごとの特徴とリスクを解説 |
 | `articles/sector-diversification.html` | 解説記事「東証33業種で考える分散投資のすすめ」。東証33業種一覧・時価総額トップ3企業（客観データ）と分散の考え方 |
 | `articles/glossary.html` | 「株式用語辞典」。ROE・PER・PBR等の指標、注文方法、権利関連、投資の考え方に関する用語を解説 |
+| `articles/emergency-fund.html` | 解説記事「生活防衛資金とは？」（2026年9月追加）。投資を始める前に確保しておくお金の考え方・目安（会社員3ヶ月/自営業6ヶ月〜1年）・置き場所を解説。guide/getting-started.htmlのSTEP 0、market-crashes.html、interest-rate-rise.htmlと相互リンク |
 | `articles/yen-exchange-rate.html` | 解説記事「円安とは？円高とは？」。為替の仕組みと、輸出/輸入関連など業種への影響、為替ヘッジの考え方 |
 | `articles/interest-rate-rise.html` | 解説記事「金利が上昇すると？」（2026年9月追加）。債券価格が下がりやすい理由・株式（業種別）/預金/住宅ローン/為替への影響を解説。sector-guide.html・sector-diversification.html・yen-exchange-rate.htmlと相互リンク |
 | `articles/dividend-record-date.html` | 解説記事「配当基準日とは？」。権利付き最終日・権利落ち日（T+2決済ベース）、期末配当/中間配当、権利落ち日の株価下落傾向を解説 |
