@@ -110,6 +110,37 @@ h1 {
   margin-top: 0;
 }
 
+/* =========================
+   カードタイトルのアイコン
+========================= */
+.card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.card-title-row h2 {
+  margin: 0;
+}
+
+.card-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f1ede4;
+  color: var(--navy);
+}
+
+.card-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
 .card p {
   color: #666;
   line-height: 1.6;
