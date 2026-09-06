@@ -25,6 +25,21 @@ body {
   padding: 20px;
 }
 
+.container-wide {
+  max-width: 1100px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.card-grid .card {
+  margin-bottom: 0;
+}
+
 /* =========================
    Typography
 ========================= */

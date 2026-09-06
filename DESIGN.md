@@ -132,6 +132,8 @@
 ## 共通デザインシステム（style.css）
 
 - `.container`: 最大幅900px、中央寄せのページラッパー
+- `.container-wide`: `.container`と併用し最大幅を1100pxに拡張するモディファイア（2026年9月追加、index.htmlのみ使用）
+- `.card-grid`: レスポンシブなカードグリッド（`grid-template-columns: repeat(auto-fill, minmax(260px, 1fr))`）。2026年9月、TOPページのカード一覧（41枚）が1列だと縦に長すぎるという指摘を受けて導入。PC幅では自動的に3〜4列になり、画面が狭くなると1列に折り返される。index.htmlの記事一覧セクションのみで使用（グリッド内の`.card`は`margin-bottom: 0`でグリッドの`gap`と二重にならないよう調整済み）
 - `.card`: 白背景・角丸14px・シャドウ・hoverで浮き上がるアニメーション。各ページはカードの積み重ねで構成される
 - `.site-header` / `.header-inner` / `.logo` / `.nav`: ネイビー背景・ゴールドの下罫線の共通ヘッダー（2026年9月にリデザイン、詳細は「TOPページ高級感リデザイン」節を参照）
 - `.footer`: 共通フッター（`.site-footer` という旧クラスは廃止し `.footer` に統一済み）
