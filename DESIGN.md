@@ -255,7 +255,7 @@ A8.net落選理由は不明。一般的にASP審査で重視されやすい項�
 - GA4・Clarityと同じ`calc.side.project@gmail.com`でSearch Consoleも統一し、管理を一本化した
 - Bing Webmaster Toolsにも登録完了（2026年8月）。「Google Search Consoleからインポート」機能を使用。初回はOAuth時に別のGoogleアカウントが選択されてしまい「GSCのサイトが見つかりません」と表示されたが、再試行時に`calc.side.project@gmail.com`を明示的に選択して解決。インポートにより所有権確認・`sitemap.xml`送信とも自動完了し、サイトマップは状態「成功」・発見されたURL40件（実ページ数と完全一致）を確認済み
 - **canonicalタグ（2026年9月追加）：** 全体的なSEO点検を実施した際、canonicalタグが1ページも設定されていないことが判明。404.htmlを除く45ページ全てに、各ページの`og:url`と同じ絶対URLを使った自己参照canonical（`<link rel="canonical" href="...">`）を追加。og:urlの直後に配置し、新しいページを作る際はog:url設定時に忘れずcanonicalも追加すること
-- **未対応の指摘事項：** 同じ点検で、全ページ共通で`og:image`（SNSシェア時のサムネイル画像）とJSON-LD構造化データ（Article/WebSiteスキーマ）が無いことも判明。og:imageは画像素材の用意、構造化データはスキーマ設計が必要なため、2026年9月時点では未着手
+- **JSON-LD構造化データ（2026年9月追加）：** index.htmlに`WebSite`スキーマ（name/url/description/publisher）、articles/全34記事＋guide/getting-started.html＋compare.htmlの計36ページに`Article`スキーマ（headline/description/author＝「けいさん先生」/publisher＝Money Calculator/datePublished・dateModified/mainEntityOfPage）を追加。日付は`git log --diff-filter=A`（初回コミット＝datePublished）と`git log -1`（最新コミット＝dateModified）から実際の履歴を取得して設定（sitemap.xmlのlastmodと同じ方針）。canonicalタグの直後に配置。計算ツール4ページ（compound/monthly/fire/dividend）は「記事」ではなくツールのため対象外（将来WebApplicationスキーマを検討する余地あり）。`og:image`（SNSシェア時のサムネイル画像）は画像素材の用意が必要なため、2026年9月時点ではまだ未着手
 
 ## OGP・favicon・404ページ（2026年8月）
 
