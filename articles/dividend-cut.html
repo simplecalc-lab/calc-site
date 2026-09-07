@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%93%88</text></svg>" />
+    <title>減配とは？なぜ起こるのか、株主はどう考えればいいかを解説</title>
+    <meta name="description" content="減配とは何か、なぜ企業は配当を減らすのか、保有株が減配したときにどう考えればよいかを初心者向けに解説します。">
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="減配とは？なぜ起こるのか、株主はどう考えればいいかを解説" />
+    <meta property="og:description" content="減配とは何か、なぜ企業は配当を減らすのか、保有株が減配したときにどう考えればよいかを初心者向けに解説します。" />
+    <meta property="og:url" content="https://simplecalc-lab.github.io/calc-site/articles/dividend-cut.html" />
+    <meta property="og:site_name" content="Money Calculator" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QR293VCKN2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+
+      gtag("config", "G-QR293VCKN2");
+    </script>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y4dbh1d4xr");
+    </script>
+</head>
+
+<body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <a href="../index.html">Money Calculator</a>
+          <span class="logo-sub">資産形成・投資サポートサイト</span>
+        </div>
+
+        <nav class="nav">
+          <a href="../index.html">ホーム</a>
+          <a href="../compound.html">複利</a>
+          <a href="../monthly.html">積立</a>
+          <a href="../fire.html">FIRE</a>
+          <a href="../dividend.html">配当</a>
+          <a href="../compare.html">比較</a>
+          <a href="../sitemap.html">記事一覧</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+        <h1>減配とは？</h1>
+        <p class="subtitle">配当が減るときに知っておきたい考え方</p>
+
+        <div class="card">
+            <h2>減配とは</h2>
+            <p>
+                減配とは、企業が株主に支払う1株あたりの配当金を、前期よりも減らすことです。
+                反対に配当を増やすことは「増配」、配当の支払いをゼロにすることは「無配」と
+                呼ばれます。配当は企業が生み出した利益の一部を株主に還元するものなので、
+                利益の状況や今後の方針によって金額が見直されることがあります。
+            </p>
+        </div>
+
+        <div class="illustration">
+            <svg viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="前期の配当より今期の配当が減っている減配のイメージ図">
+                <text x="80" y="20" text-anchor="middle" font-size="12" fill="#666">前期の配当</text>
+                <rect x="45" y="30" width="70" height="100" fill="#eaf3fc" stroke="#2e7bd6" stroke-width="2"/>
+                <text x="80" y="85" text-anchor="middle" font-size="14" font-weight="bold" fill="#1c4a80">100円</text>
+
+                <text x="240" y="20" text-anchor="middle" font-size="12" fill="#666">今期の配当</text>
+                <rect x="205" y="70" width="70" height="60" fill="#fdeeee" stroke="#e53935" stroke-width="2"/>
+                <text x="240" y="105" text-anchor="middle" font-size="14" font-weight="bold" fill="#8a2622">60円</text>
+
+                <path d="M120 60 L200 90" stroke="#aaa" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+                <text x="160" y="150" text-anchor="middle" font-size="13" font-weight="bold" fill="#8a2622">減配</text>
+            </svg>
+        </div>
+
+        <div class="point-box">
+            <div class="point-box-title">💡 この記事のポイント</div>
+            <ul>
+                <li>減配には、業績悪化による「やむを得ない減配」と、成長投資などのための「戦略的な減配」がある</li>
+                <li>減配の発表は株価が下がる要因になりやすいが、その後の展開は理由によって異なる</li>
+                <li>保有株が減配しても、慌てて売る前に理由を確認する習慣が大切</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>なぜ減配は起こるのか</h2>
+            <p>
+                減配が起こる理由は、大きく2つのパターンに分けて考えると理解しやすくなります。
+            </p>
+            <ul>
+                <li>
+                    <strong>業績悪化による減配</strong>：売上・利益が落ち込み、これまでの配当水準を
+                    維持する余力がなくなった場合に行われます。配当性向（利益のうち配当に回す割合）が
+                    高すぎた銘柄ほど、業績悪化の影響を受けやすくなります。
+                </li>
+                <li>
+                    <strong>戦略的な減配</strong>：将来の成長投資や設備投資、借入金の返済を優先するために、
+                    あえて配当を抑える経営判断です。この場合、必ずしも会社の状態が悪いわけではなく、
+                    将来的な企業価値の向上を狙った前向きな判断であることもあります。
+                </li>
+            </ul>
+            <p>
+                同じ「減配」という言葉でも、背景にある理由によって受け止め方は変わってきます。
+                配当性向や増配・減配の実績を事前に確認しておく方法は
+                <a href="high-dividend-stocks.html">高配当株の選び方</a>で解説しています。
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>減配が発表されると株価はどうなる？</h2>
+            <p>
+                配当は投資家にとって重要な収益源の一つなので、減配の発表は「将来もらえる
+                お金が減る」というマイナスの材料として受け止められやすく、株価が下落する
+                要因になりやすい傾向があります。特に、高配当株として買われていた銘柄ほど、
+                値下がりの影響が大きくなることがあります。
+            </p>
+            <p>
+                ただし、下落幅や回復のスピードは、減配の理由や企業の将来性に対する見方に
+                よって大きく異なります。一時的な業績悪化による減配であれば、業績が回復するに
+                つれて株価も戻っていくケースもあります。
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>保有株が減配したら、どう考えればいい？</h2>
+            <p>
+                自分が保有している銘柄が減配を発表すると、不安になるのは自然なことです。
+                ただし、慌てて売却する前に、まずは減配の理由を確認する習慣をつけておくと
+                安心です。
+            </p>
+            <ul>
+                <li>一時的な業績悪化なのか、構造的な問題なのかを確認する</li>
+                <li>減配後も、会社の売上・利益のトレンドが大きく崩れていないかを確認する</li>
+                <li>戦略的な減配であれば、その投資先が将来の成長につながりそうかを確認する</li>
+            </ul>
+            <p>
+                会社の基本的な体力を見極めるポイントは
+                <a href="good-company.html">良い会社の見つけ方</a>で詳しく解説しています。
+                理由を確認したうえで「このまま持ち続けるか」「一度手放すか」を判断すれば、
+                感情的な判断で慌てて売ってしまうことを避けやすくなります。なお、売却して
+                損失が出た場合の確定申告については
+                <a href="stock-loss-tax.html">株の損失は確定申告したほうがお得？</a>も
+                参考にしてください。
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>逆に「増配を続ける企業」という視点も</h2>
+            <p>
+                減配とは反対に、何年も連続して増配を続けている企業もあります。米国には
+                25年以上連続増配を続けた企業を指す「配当貴族」、50年以上続けた企業を指す
+                「配当王」といった呼び方もあり、こうした企業は株主還元を重視する経営姿勢の
+                目安としてよく紹介されます。日本でも、長年増配を続けている企業の例として
+                <a href="mufg-case-study.html">三菱UFJ株を6年間保有した結果</a>で
+                実際の推移を紹介していますので、あわせてご覧ください。
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>まとめ</h2>
+            <p>
+                減配は「悪いニュース」と一括りにせず、業績悪化によるものか、戦略的な判断に
+                よるものかを見極めることが大切です。保有株が減配しても、理由を確認したうえで
+                落ち着いて判断すれば、必要以上に不安になる必要はありません。配当の推移や
+                増配実績は、銘柄選びの一つの視点として、日頃からチェックしておく習慣を
+                つけておくとよいでしょう。
+            </p>
+            <div class="callout callout-info">
+                <span class="callout-title">ご注意</span>
+                <p>
+                ※本記事は減配に関する一般的な考え方を紹介する情報提供を目的としたものであり、
+                特定の銘柄への投資を推奨・勧誘するものではありません。配当は将来にわたって
+                保証されたものではなく、企業の業績や方針により変動します。投資の最終判断は
+                ご自身の調査と責任において行ってください。
+            </p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="card">
+            <h2>配当を意識した投資を始めるなら</h2>
+            <p class="note-small">※口座開設は無料・スマホで申し込みできます</p>
+            <!-- TODO: アクセストレード等での提携後、実際のアフィリエイトURLに差し替える -->
+            <a href="../compare.html" class="cta"> ▶ 証券会社を比較して口座を開設する </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <a href="../about.html">運営者情報</a>
+        <a href="../privacy.html">プライバシーポリシー</a>
+        <a href="../contact.html">お問い合わせ</a>
+    </footer>
+</body>
+
+</html>

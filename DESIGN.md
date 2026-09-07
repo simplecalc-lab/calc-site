@@ -103,6 +103,7 @@
 | `articles/nisa-vs-ideco.html` | 解説記事「NISAとiDeCoの違いを比較」。引き出し制限・税制優遇・拠出限度額を比較。2026年12月のiDeCo制度改正（拠出限度額・加入年齢引き上げ）を反映 |
 | `articles/yutai-calendar.html` | 解説記事「株主優待カレンダー」。yutai-20.htmlの銘柄を権利確定月（2月/3月/4月/6月/8月/9月/12月）別に再構成。優待ポートフォリオの組み方も解説 |
 | `articles/high-dividend-stocks.html` | 解説記事「高配当株の選び方」。配当利回りの罠、配当性向・増配実績・業績の裏付けチェック、業種偏りへの注意を解説 |
+| `articles/dividend-cut.html` | 解説記事「減配とは？」（2026年9月追加）。業績悪化型/戦略的減配の違い、株価への影響、保有株が減配した場合の考え方（慌てて売る前に理由確認）、配当貴族・配当王の紹介。high-dividend-stocks.html・good-company.html・mufg-case-study.html・stock-loss-tax.htmlと相互リンク |
 | `articles/ipo.html` | 解説記事「IPO（新規公開株）とは？」。申し込みの流れ、当選確率を上げるコツ、初値割れ等のリスクを解説 |
 
 | `articles/ideco-nencho.html` | 解説記事「iDeCoの年末調整の書き方」。小規模企業共済等掛金控除欄の記入方法、必要書類、よくある間違いを解説（マーケティング部の季節性トピック調査より） |
