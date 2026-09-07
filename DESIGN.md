@@ -254,6 +254,8 @@ A8.net落選理由は不明。一般的にASP審査で重視されやすい項�
 - Google Search Consoleに`calc.side.project@gmail.com`で登録完了（2026年8月）。プロパティは「URLプレフィックス」形式（`https://simplecalc-lab.github.io/calc-site/`）、所有権確認は既存のGA4トラッキングコードを使った自動確認で完了。`sitemap.xml`も送信済み（送信直後は「取得できませんでした」と表示されるが、実ファイルは200 OKで正常配信されており、Googleが未クロールなだけの一時的な表示。半日〜1日待って再確認する）
 - GA4・Clarityと同じ`calc.side.project@gmail.com`でSearch Consoleも統一し、管理を一本化した
 - Bing Webmaster Toolsにも登録完了（2026年8月）。「Google Search Consoleからインポート」機能を使用。初回はOAuth時に別のGoogleアカウントが選択されてしまい「GSCのサイトが見つかりません」と表示されたが、再試行時に`calc.side.project@gmail.com`を明示的に選択して解決。インポートにより所有権確認・`sitemap.xml`送信とも自動完了し、サイトマップは状態「成功」・発見されたURL40件（実ページ数と完全一致）を確認済み
+- **canonicalタグ（2026年9月追加）：** 全体的なSEO点検を実施した際、canonicalタグが1ページも設定されていないことが判明。404.htmlを除く45ページ全てに、各ページの`og:url`と同じ絶対URLを使った自己参照canonical（`<link rel="canonical" href="...">`）を追加。og:urlの直後に配置し、新しいページを作る際はog:url設定時に忘れずcanonicalも追加すること
+- **未対応の指摘事項：** 同じ点検で、全ページ共通で`og:image`（SNSシェア時のサムネイル画像）とJSON-LD構造化データ（Article/WebSiteスキーマ）が無いことも判明。og:imageは画像素材の用意、構造化データはスキーマ設計が必要なため、2026年9月時点では未着手
 
 ## OGP・favicon・404ページ（2026年8月）
 
