@@ -28,7 +28,9 @@
       function gtag(){dataLayer.push(arguments);}
       gtag("js", new Date());
 
-      gtag("config", "G-QR293VCKN2");
+      if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+        gtag("config", "G-QR293VCKN2");
+      }
     </script>
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
