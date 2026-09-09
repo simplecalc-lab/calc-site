@@ -154,6 +154,7 @@ h1 {
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--navy);
+  margin-top: 0;
   margin-bottom: 8px;
 }
 
@@ -164,7 +165,7 @@ h1 {
 }
 
 .hero {
-  padding: 12px 0 8px;
+  padding: 0 0 8px;
 }
 
 .hero-divider {
