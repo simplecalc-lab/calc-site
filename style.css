@@ -133,11 +133,17 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 20px;
-  align-items: start;
 }
 
 .card-grid .card {
   margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-grid .card > a:last-child {
+  margin-top: auto;
+  padding-top: 12px;
 }
 
 /* =========================
