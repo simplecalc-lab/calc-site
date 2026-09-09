@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%93%88</text></svg>" />
+    <title>1ヶ月の生活費、把握できていますか？項目別チェック＆集計ツール</title>
+    <meta name="description" content="生活防衛資金やFIREの目標額を考える土台になる「1ヶ月の生活費」を、項目別のチェックリストと無料の集計ツールで簡単に把握する方法を解説します。">
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="1ヶ月の生活費、把握できていますか？項目別チェック＆集計ツール" />
+    <meta property="og:description" content="生活防衛資金やFIREの目標額を考える土台になる「1ヶ月の生活費」を、項目別のチェックリストと無料の集計ツールで簡単に把握する方法を解説します。" />
+    <meta property="og:url" content="https://simplecalc-lab.github.io/calc-site/articles/living-expenses.html" />
+    <link rel="canonical" href="https://simplecalc-lab.github.io/calc-site/articles/living-expenses.html" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "1ヶ月の生活費、把握できていますか？項目別チェック＆集計ツール",
+      "description": "生活防衛資金やFIREの目標額を考える土台になる「1ヶ月の生活費」を、項目別のチェックリストと無料の集計ツールで簡単に把握する方法を解説します。",
+      "author": { "@type": "Person", "name": "けいさん先生" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Money Calculator",
+        "url": "https://simplecalc-lab.github.io/calc-site/"
+      },
+      "datePublished": "2026-09-09",
+      "dateModified": "2026-09-09",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://simplecalc-lab.github.io/calc-site/articles/living-expenses.html" },
+      "inLanguage": "ja"
+    }
+    </script>
+    <meta property="og:site_name" content="Money Calculator" />
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QR293VCKN2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+
+      if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+        gtag("config", "G-QR293VCKN2");
+      }
+    </script>
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y4dbh1d4xr");
+    </script>
+</head>
+
+<body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <a href="../index.html">Money Calculator</a>
+          <span class="logo-sub">資産形成・投資サポートサイト</span>
+        </div>
+
+        <nav class="nav">
+          <a href="../index.html">ホーム</a>
+          <a href="../compound.html">複利</a>
+          <a href="../monthly.html">積立</a>
+          <a href="../fire.html">FIRE</a>
+          <a href="../dividend.html">配当</a>
+          <a href="../compare.html">比較</a>
+          <a href="../sitemap.html">記事一覧</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+        <h1>1ヶ月の生活費、把握できていますか？</h1>
+        <p class="subtitle">項目別チェックリストと集計ツールで、資産形成の土台を数字にする</p>
+
+        <div class="card">
+            <h2>なぜ生活費を把握することが大切なのか</h2>
+            <p>
+                <a href="emergency-fund.html">生活防衛資金</a>の目安（生活費の3〜6ヶ月分）も、
+                <a href="../fire.html">FIREに必要な資産額</a>（年間支出をもとに算出）も、
+                どちらも「自分の生活費が月いくらか」がわからないと具体的な数字になりません。
+                なんとなくの感覚ではなく、実際に項目別に洗い出してみることで、
+                資産形成の目標がぐっと現実的になります。
+            </p>
+        </div>
+
+        <div class="point-box">
+            <div class="point-box-title">💡 この記事のポイント</div>
+            <ul>
+                <li>生活費は「固定費」と「変動費」に分けて洗い出すと把握しやすい</li>
+                <li>クレジットカード・銀行口座の明細を1〜3ヶ月分振り返ると精度が上がる</li>
+                <li>把握した生活費は、生活防衛資金・FIRE計算の両方にそのまま活用できる</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>固定費と変動費に分けて考える</h2>
+            <p>
+                生活費は、毎月ほぼ同じ金額がかかる「固定費」と、月によって変動する「変動費」に
+                分けて洗い出すと整理しやすくなります。
+            </p>
+            <ul>
+                <li><strong>固定費の例</strong>：家賃・住宅ローン、水道光熱費の基本料金、通信費、保険料、サブスクリプション料金</li>
+                <li><strong>変動費の例</strong>：食費、日用品費、被服費、交際費・娯楽費、医療費、交通費</li>
+            </ul>
+            <p>
+                固定費は口座やクレジットカードの明細を見ればすぐに把握できます。変動費は
+                月によってばらつきがあるため、直近1〜3ヶ月分の平均を取ると実態に近い数字になります。
+            </p>
+        </div>
+
+        <div class="illustration">
+            <svg viewBox="0 0 340 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="固定費と変動費の内訳イメージ図">
+                <rect x="15" y="15" width="150" height="120" rx="10" fill="#eaf3fc" stroke="#2e7bd6" stroke-width="2"/>
+                <text x="90" y="45" text-anchor="middle" font-size="13" font-weight="bold" fill="#1c4a80">固定費</text>
+                <text x="90" y="68" text-anchor="middle" font-size="10" fill="#1c4a80">家賃・通信費</text>
+                <text x="90" y="84" text-anchor="middle" font-size="10" fill="#1c4a80">保険料 など</text>
+                <text x="90" y="112" text-anchor="middle" font-size="11" fill="#1c4a80">明細ですぐ把握できる</text>
+
+                <rect x="175" y="15" width="150" height="120" rx="10" fill="#fff8e6" stroke="#f0b429" stroke-width="2"/>
+                <text x="250" y="45" text-anchor="middle" font-size="13" font-weight="bold" fill="#8a6116">変動費</text>
+                <text x="250" y="68" text-anchor="middle" font-size="10" fill="#8a6116">食費・交際費</text>
+                <text x="250" y="84" text-anchor="middle" font-size="10" fill="#8a6116">日用品費 など</text>
+                <text x="250" y="112" text-anchor="middle" font-size="11" fill="#8a6116">1〜3ヶ月分の平均で把握</text>
+            </svg>
+        </div>
+
+        <!-- 集計ツール -->
+        <div class="card">
+            <h2>生活費集計ツール</h2>
+            <p class="note-small">※入力した内容はサーバーには送信されません（ページを閉じると入力内容は消去されます）</p>
+
+            <label>家賃・住宅ローン（円）</label>
+            <input id="exp-rent" type="number" placeholder="例：70000" min="0" />
+
+            <label>食費（円）</label>
+            <input id="exp-food" type="number" placeholder="例：40000" min="0" />
+
+            <label>水道光熱費（円）</label>
+            <input id="exp-utility" type="number" placeholder="例：12000" min="0" />
+
+            <label>通信費（円）</label>
+            <input id="exp-phone" type="number" placeholder="例：8000" min="0" />
+
+            <label>保険料（円）</label>
+            <input id="exp-insurance" type="number" placeholder="例：10000" min="0" />
+
+            <label>日用品・被服費（円）</label>
+            <input id="exp-daily" type="number" placeholder="例：10000" min="0" />
+
+            <label>交際費・娯楽費（円）</label>
+            <input id="exp-leisure" type="number" placeholder="例：15000" min="0" />
+
+            <label>その他（円）</label>
+            <input id="exp-other" type="number" placeholder="例：10000" min="0" />
+
+            <button onclick="calcExpenses()">集計する</button>
+
+            <div class="result" id="exp-result"></div>
+        </div>
+
+        <div class="card">
+            <h2>集計した金額の活用方法</h2>
+            <p>
+                月の生活費が把握できたら、次のように活用できます。
+            </p>
+            <ul>
+                <li>
+                    <strong>生活防衛資金の目安を確認</strong>：月の生活費×3〜6ヶ月分が目安です。
+                    詳しくは<a href="emergency-fund.html">生活防衛資金とは？</a>をご覧ください。
+                </li>
+                <li>
+                    <strong>FIREに必要な資産額を計算</strong>：月の生活費×12ヶ月＝年間支出を、
+                    <a href="../fire.html">FIRE計算ツール</a>の「年間支出」欄に入力すると、
+                    早期リタイアに必要な資産額の目安がわかります。
+                </li>
+                <li>
+                    <strong>積立に回せる余裕資金を確認</strong>：収入から生活費を差し引いた金額が、
+                    <a href="../monthly.html">積立シミュレーター</a>で試算する毎月の積立額の
+                    上限の目安になります。
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>まとめ</h2>
+            <p>
+                1ヶ月の生活費を項目別に洗い出すことは、地味な作業に見えて、資産形成の
+                あらゆる計算の土台になる大切なステップです。一度把握してしまえば、
+                生活防衛資金の目安もFIREに必要な資産額も、具体的な数字として見えてきます。
+                まずは今月の明細を振り返るところから始めてみましょう。
+            </p>
+            <div class="callout callout-info">
+                <span class="callout-title">ご注意</span>
+                <p>
+                ※本ツールは入力内容をもとに単純合計を行う簡易的な集計ツールであり、
+                家計簿アプリのような明細管理・自動連携機能はありません。あくまで目安の把握用としてご活用ください。
+            </p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="card">
+            <h2>生活防衛資金を確保できたら</h2>
+            <p class="note-small">※口座開設は無料・スマホで申し込みできます</p>
+            <!-- TODO: アクセストレード等での提携後、実際のアフィリエイトURLに差し替える -->
+            <a href="../compare.html" class="cta"> ▶ 証券会社を比較して口座を開設する </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <a href="../about.html">運営者情報</a>
+        <a href="../privacy.html">プライバシーポリシー</a>
+        <a href="../contact.html">お問い合わせ</a>
+    </footer>
+
+    <script>
+      function calcExpenses() {
+        const ids = [
+          "exp-rent", "exp-food", "exp-utility", "exp-phone",
+          "exp-insurance", "exp-daily", "exp-leisure", "exp-other"
+        ];
+
+        let total = 0;
+        ids.forEach(function (id) {
+          total += Number(document.getElementById(id).value) || 0;
+        });
+
+        if (total === 0) {
+          alert("いずれかの項目に金額を入力してください");
+          return;
+        }
+
+        const annual = total * 12;
+        const min3 = total * 3;
+        const min6 = total * 6;
+
+        document.getElementById("exp-result").innerHTML =
+          "月の生活費合計: <b>" + total.toLocaleString() + " 円</b><br>" +
+          "年間支出換算（FIRE計算にそのまま使えます）: <b>" + annual.toLocaleString() + " 円</b><br><br>" +
+          "生活防衛資金の目安（3ヶ月分）: <b>" + min3.toLocaleString() + " 円</b><br>" +
+          "生活防衛資金の目安（6ヶ月分）: <b>" + min6.toLocaleString() + " 円</b>";
+      }
+    </script>
+</body>
+
+</html>

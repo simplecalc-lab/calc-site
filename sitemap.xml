@@ -265,6 +265,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://simplecalc-lab.github.io/calc-site/articles/living-expenses.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://simplecalc-lab.github.io/calc-site/guide/getting-started.html</loc>
     <lastmod>2026-08-19</lastmod>
     <changefreq>monthly</changefreq>

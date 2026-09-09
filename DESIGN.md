@@ -88,6 +88,7 @@
 | `articles/sector-guide.html` | 解説記事「長期投資で注目したい業種・セクターの選び方」。業種ごとの特徴とリスクを解説 |
 | `articles/sector-diversification.html` | 解説記事「東証33業種で考える分散投資のすすめ」。東証33業種一覧・時価総額トップ3企業（客観データ）と分散の考え方 |
 | `articles/glossary.html` | 「株式用語辞典」。ROE・PER・PBR等の指標、注文方法、権利関連、投資の考え方に関する用語を解説 |
+| `articles/living-expenses.html` | 解説記事＋簡易ツール「1ヶ月の生活費、把握できていますか？」（2026年9月追加）。固定費/変動費の分け方、8項目（家賃・食費・水道光熱費・通信費・保険料・日用品/被服費・交際費/娯楽費・その他）を入力して合計・年間換算・生活防衛資金目安（3/6ヶ月分）を計算するツールを内蔵。emergency-fund.html・fire.html・monthly.htmlと相互リンク。入力内容はlocalStorage等に保存せず都度計算のみ（note-small表記も「保存されない」旨に修正済み） |
 | `articles/emergency-fund.html` | 解説記事「生活防衛資金とは？」（2026年9月追加）。投資を始める前に確保しておくお金の考え方・目安（会社員3ヶ月/自営業6ヶ月〜1年）・置き場所を解説。guide/getting-started.htmlのSTEP 0、market-crashes.html、interest-rate-rise.htmlと相互リンク |
 | `articles/yen-exchange-rate.html` | 解説記事「円安とは？円高とは？」。為替の仕組みと、輸出/輸入関連など業種への影響、為替ヘッジの考え方 |
 | `articles/interest-rate-rise.html` | 解説記事「金利が上昇すると？」（2026年9月追加）。債券価格が下がりやすい理由・株式（業種別）/預金/住宅ローン/為替への影響を解説。sector-guide.html・sector-diversification.html・yen-exchange-rate.htmlと相互リンク |
