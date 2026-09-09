@@ -29,6 +29,106 @@ body {
   max-width: 1100px;
 }
 
+/* =========================
+   ページ全体レイアウト（左サイドバー）
+========================= */
+.page-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.page-layout .container {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.page-layout .container.container-wide {
+  max-width: none;
+}
+
+.sidebar {
+  width: 210px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 24px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.sidebar-nav a:hover {
+  background: #fff;
+  color: var(--navy);
+}
+
+.sidebar-nav .sidebar-icon {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--navy);
+}
+
+.sidebar-nav a.sidebar-top {
+  font-weight: bold;
+  border-bottom: 1px solid #e5e1d8;
+  margin-bottom: 6px;
+  padding-bottom: 12px;
+}
+
+@media (max-width: 900px) {
+  .page-layout {
+    flex-direction: column;
+    padding: 30px 15px;
+    gap: 15px;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: static;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .sidebar-nav a {
+    padding: 7px 10px;
+    background: #fff;
+    border: 1px solid #eee;
+  }
+
+  .sidebar-nav a.sidebar-top {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 7px;
+    width: 100%;
+  }
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
