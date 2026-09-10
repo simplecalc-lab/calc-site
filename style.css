@@ -32,6 +32,10 @@ body {
 /* =========================
    ページ全体レイアウト（左サイドバー）
 ========================= */
+.hero-section.container {
+  margin-bottom: 0;
+}
+
 .page-layout {
   display: flex;
   align-items: flex-start;
