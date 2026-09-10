@@ -60,6 +60,8 @@ body {
 .sidebar {
   width: 210px;
   flex-shrink: 0;
+  position: sticky;
+  top: 24px;
 }
 
 .sidebar-nav {
