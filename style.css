@@ -428,17 +428,13 @@ button:hover {
 }
 
 .header-inner {
-  max-width: 1140px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 20px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.header-inner.header-inner-wide {
-  max-width: 1400px;
 }
 
 .logo {
