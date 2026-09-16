@@ -252,6 +252,7 @@ A8.net落選理由は不明。一般的にASP審査で重視されやすい項�
 
 - 「オーガニック流入が少ない」という相談をきっかけに、2026年8月時点で`sitemap.xml`（Googleがクロールする機械可読サイトマップ）と`robots.txt`が存在しないことが判明。人間向けの`sitemap.html`とは別物で、これが無いとGoogleがサイト構造・全ページを把握するまでに時間がかかる
 - `sitemap.xml`を新規作成。全40ページを`<loc>`（URL）・`<lastmod>`（git履歴から取得した実際の最終更新日）・`<changefreq>`・`<priority>`付きで記載（トップページ1.0、計算ツール/比較0.8、記事0.6、about/contact/privacy0.3）
+- **lastmodの陳腐化に注意（2026年9月）：** 新しい記事を追加した際に個別URLの`lastmod`は都度更新していたが、全ページ横断のCSS変更（サイドバー導入・canonicalタグ・JSON-LD追加など）をした際に、影響を受けた既存ページ全ての`lastmod`更新を失念し続けていたため、46ページ全てで`lastmod`が実際の最終更新日より2〜4週間古いまま放置されていたことが判明（GSCで「クロール済み-インデックス未登録」の5ページが2週間再クロールされない件を調査していて発覚）。全URLの`lastmod`を`git log -1 --format=%aI`から再生成して修正。**教訓：** style.css等、全ページに影響する共通ファイルを変更した際は、影響範囲の全URLのlastmodをsitemap.xmlに反映するか、次回まとめて更新するタイミングを決めておくこと（`git log -1 --format=%aI -- <path>`で個別ファイルの実際の最終コミット日を取得できる）
 - `robots.txt`を新規作成し、`Sitemap:`行で`sitemap.xml`の場所を明示
 - 新しいページを追加した際は、`sitemap.xml`にも忘れずにURLを追加すること（sitemap.html・DESIGN.mdの一覧表と合わせて3箇所への追記が必要になった点に注意）
 - Google Search Consoleに`calc.side.project@gmail.com`で登録完了（2026年8月）。プロパティは「URLプレフィックス」形式（`https://simplecalc-lab.github.io/calc-site/`）、所有権確認は既存のGA4トラッキングコードを使った自動確認で完了。`sitemap.xml`も送信済み（送信直後は「取得できませんでした」と表示されるが、実ファイルは200 OKで正常配信されており、Googleが未クロールなだけの一時的な表示。半日〜1日待って再確認する）
