@@ -336,19 +336,19 @@ button:hover {
 .cta {
   display: block;
   text-align: center;
-  background: var(--navy);
-  color: #fff !important;
+  background: var(--gold);
+  color: var(--navy) !important;
   padding: 14px;
   border-radius: 10px;
   margin-top: 15px;
   text-decoration: none;
   font-weight: bold;
-  border: 1px solid var(--navy);
+  border: 1px solid var(--gold);
   transition: 0.2s;
 }
 
 .cta:hover {
-  background: var(--navy-light);
+  background: var(--gold-soft);
   border-color: var(--gold-soft);
 }
 

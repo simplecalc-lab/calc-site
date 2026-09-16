@@ -143,7 +143,7 @@
 - `.footer`: 共通フッター（`.site-footer` という旧クラスは廃止し `.footer` に統一済み）
 - `input` / `select` / `button` / `label`: フォーム要素の共通スタイル
 - `.result`: 計算結果の表示エリア（薄グレー背景）
-- `.cta`: 黒背景・白文字の強調ボタン。「収益の核」とコメントされている通り、アフィリエイト導線の要
+- `.cta`: ゴールド背景・ネイビー文字の強調ボタン（2026年9月、ネイビー背景・白文字から変更。理由は下記参照）。「収益の核」とコメントされている通り、アフィリエイト導線の要
 - `.compare-table`: 比較表用のテーブルスタイル（dividend.html/fire.htmlの内訳テーブルにも流用）
 - `.holding-row` / `.add-row` / `.remove-row` / `.saved-note` / `.clear-holdings`: dividend.htmlの複数銘柄入力フォーム用スタイル
 - `.push-text` / `.note` / `.note-small`: 補足テキスト用のスタイル
@@ -325,7 +325,7 @@ A8.net落選理由は不明。一般的にASP審査で重視されやすい項�
 - `h1`と`.logo a`に明朝体（Google Fonts「Shippori Mincho」、フォールバック`Hiragino Mincho ProN`/`Yu Mincho`）を適用し、色をネイビーに
 - `.hero` / `.hero-divider`（H1直下のゴールドの短い区切り線）を新設し、index.htmlのヒーロー部分に適用
 - `.site-header`をネイビー背景＋ゴールドの下罫線2pxに変更、`.nav a`のhover色をゴールドに
-- `.cta`ボタンを黒からネイビー背景＋ゴールドアクセントのhoverに変更
+- `.cta`ボタンを黒からネイビー背景＋ゴールドアクセントのhoverに変更。**CTAボタンをゴールド地に変更（2026年9月）：** 「クリックされやすいボタン色はあるか」という質問をきっかけに、色相そのものより周囲とのコントラストが重要という一般的なCRO（コンバージョン率最適化）の知見を共有。当時のCTAはネイビー背景でヘッダーと同系色のためページに馴染みすぎていた点を指摘し、`.cta`の背景をネイビー→ゴールド、文字色を白→ネイビーに変更（白文字のままゴールド背景にするとコントラスト比が約3:1でWCAG AA基準の4.5:1を下回るため、ネイビー文字を採用。ネイビー文字なら比率約5.2:1でAA適合）。hoverは`--gold-soft`（明るいゴールド）に変更
 - 旧headerルールがマージ事故で重複していた箇所をこの作業で1つに整理統合（`align-items: center`によるFIREナブ揃えのバグ修正は維持）
 - Google Fontsの`<link rel="preconnect">`＋stylesheetタグを全43ファイルのhead内、`style.css`読み込み直前に追加（Perlスクリプトで一括挿入、`fonts.googleapis.com`が既にあるファイルはスキップする形で実装）
 
