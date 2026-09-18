@@ -800,6 +800,17 @@ button:hover {
   color: #555;
 }
 
+.badge-gold {
+  background: #fbf1de;
+  color: #8a6116;
+}
+
+.sidebar-nav .badge-gold {
+  margin-left: auto;
+  padding: 2px 8px;
+  font-size: 10px;
+}
+
 /* 数値の強調（プラス/マイナス） */
 .stat-positive {
   color: #1e8449;
