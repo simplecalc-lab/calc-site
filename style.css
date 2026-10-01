@@ -144,6 +144,72 @@ body {
   gap: 20px;
 }
 
+/* =========================
+   新着記事
+========================= */
+.new-articles {
+  margin-bottom: 28px;
+}
+
+.new-articles-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.new-articles-head h2 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--navy);
+}
+
+.new-articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.new-article-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e5e1d8;
+  border-top: 3px solid var(--navy);
+  border-radius: 14px;
+  padding: 18px 20px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: 0.2s;
+}
+
+.new-article-card:hover {
+  transform: translateY(-4px);
+}
+
+.new-article-card h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: #111;
+  line-height: 1.4;
+}
+
+.new-article-card p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.new-article-link {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--navy);
+  font-weight: bold;
+}
+
 .card-grid .card {
   margin-bottom: 0;
   display: flex;
@@ -803,6 +869,11 @@ button:hover {
 .badge-gold {
   background: #fbf1de;
   color: #8a6116;
+}
+
+.badge-new {
+  background: var(--navy);
+  color: #fff;
 }
 
 .sidebar-nav .badge-gold {
