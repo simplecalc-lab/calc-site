@@ -98,7 +98,25 @@
   </url>
   <url>
     <loc>https://simplecalc-lab.github.io/calc-site/articles/market-high-record.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://simplecalc-lab.github.io/calc-site/articles/sp500-orcan-record.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://simplecalc-lab.github.io/calc-site/articles/stock-split-boom.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://simplecalc-lab.github.io/calc-site/articles/boj-rate-hike-2026.html</loc>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -182,7 +200,7 @@
   </url>
   <url>
     <loc>https://simplecalc-lab.github.io/calc-site/articles/popular-terms.html</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -224,7 +242,7 @@
   </url>
   <url>
     <loc>https://simplecalc-lab.github.io/calc-site/articles/tangen-vs-skabu.html</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -248,7 +266,7 @@
   </url>
   <url>
     <loc>https://simplecalc-lab.github.io/calc-site/articles/tokio-marine.html</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -260,7 +278,7 @@
   </url>
   <url>
     <loc>https://simplecalc-lab.github.io/calc-site/articles/interest-rate-rise.html</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
