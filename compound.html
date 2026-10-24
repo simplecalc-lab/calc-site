@@ -31,6 +31,16 @@
 
       if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
         gtag("config", "G-QR293VCKN2");
+
+        document.addEventListener("click", function (e) {
+          var link = e.target.closest('a.cta[href*="trafficgate.net"]');
+          if (!link) return;
+          var broker = link.href.indexOf("/6630/") !== -1 ? "sbi_kodomo" : (link.href.indexOf("/738/") !== -1 ? "rakuten" : "other");
+          gtag("event", "affiliate_click", {
+            broker: broker,
+            link_url: link.href
+          });
+        });
       }
     </script>
     <!-- Microsoft Clarity -->
